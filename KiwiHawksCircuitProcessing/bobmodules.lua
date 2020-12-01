@@ -67,7 +67,7 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
     data.raw.technology[s.."-module"..i].unit.count = cost
     local directory = "__base__"
     if i == "" then
-      directory = "__CircuitProcessing__"
+      directory = "__KiwiHawksCircuitProcessing__"
     end
     data.raw.technology[s.."-module"..i].icon = directory.."/graphics/technology/"..s.."-module"..itemtoname[i]..".png"
     data.raw.technology[s.."-module"..i].localised_name = {"item-name."..s.."-module"..itemtoname[i]}
@@ -238,7 +238,7 @@ for _,v in pairs({'speed', 'effectivity', 'productivity'}) do
   data.raw.item[module] = data.raw.module[module]
   data.raw.module[module] = nil
   data.raw.item[module].type = 'item'
-  data.raw.item[module].icon = "__CircuitProcessing__/graphics/icons/"..v.."-module-0-harness.png"
+  data.raw.item[module].icon = "__KiwiHawksCircuitProcessing__/graphics/icons/"..v.."-module-0-harness.png"
   data.raw.item[module].icon_size = 64
   data.raw.item[module].icon_mipmaps = 4
   data.raw.item[module].localised_name = {"item-name."..v.."-module-0-harness"}
@@ -252,7 +252,7 @@ for _,v in pairs({'speed', 'effectivity', 'productivity'}) do
     {'module-circuit-board', 1}
   }
   data.raw.recipe[module2].energy_required = 15
-  data.raw.module[module2].icon = "__CircuitProcessing__/graphics/icons/"..v.."-module-0.png"
+  data.raw.module[module2].icon = "__KiwiHawksCircuitProcessing__/graphics/icons/"..v.."-module-0.png"
   data.raw.module[module2].icon_size = 64
   data.raw.module[module2].icon_mipmaps = 4
   data.raw.module[module2].localised_name = {"item-name."..v.."-module-0"}
@@ -271,7 +271,7 @@ for _,v in pairs({'speed', 'effectivity', 'productivity'}) do
   data.raw.item[module3] = data.raw.module[module3]
   data.raw.module[module3] = nil
   data.raw.item[module3].type = 'item'
-  data.raw.item[module3].icon = "__CircuitProcessing__/graphics/icons/"..v.."-module-harness.png"
+  data.raw.item[module3].icon = "__KiwiHawksCircuitProcessing__/graphics/icons/"..v.."-module-harness.png"
   data.raw.item[module3].icon_size = 64
   data.raw.item[module3].icon_mipmaps = 4
   data.raw.item[module3].localised_name = {"item-name."..v.."-module-1-harness"}
@@ -304,7 +304,7 @@ for _,v in pairs({'speed', 'effectivity', 'productivity'}) do
   data.raw.item[module5] = data.raw.module[module5]
   data.raw.module[module5] = nil
   data.raw.item[module5].type = 'item'
-  data.raw.item[module5].icon = "__CircuitProcessing__/graphics/icons/"..v.."-module-2-harness.png"
+  data.raw.item[module5].icon = "__KiwiHawksCircuitProcessing__/graphics/icons/"..v.."-module-2-harness.png"
   data.raw.item[module5].icon_size = 64
   data.raw.item[module5].icon_mipmaps = 4
   data.raw.item[module5].localised_name = {"item-name."..v.."-module-2-harness"}
@@ -341,7 +341,7 @@ for _,v in pairs({'speed', 'effectivity', 'productivity'}) do
   data.raw.item[module7] = data.raw.module[module7]
   data.raw.module[module7] = nil
   data.raw.item[module7].type = 'item'
-  data.raw.item[module7].icon = "__CircuitProcessing__/graphics/icons/"..v.."-module-3-harness.png"
+  data.raw.item[module7].icon = "__KiwiHawksCircuitProcessing__/graphics/icons/"..v.."-module-3-harness.png"
   data.raw.item[module7].icon_size = 64
   data.raw.item[module7].icon_mipmaps = 4
   data.raw.item[module7].localised_name = {"item-name."..v.."-module-3-harness"}
@@ -379,13 +379,13 @@ local function makebeacontable()
   local ret = {}
   for k,v in pairs({{'module-lights', 4}, {'module-mask-box', 4}, {'module-mask-lights', 4}, {'module-slot', 5}}) do
     ret['__base__/graphics/entity/beacon/beacon-'..v[1]..'-1.png'] =
-      {file = '__CircuitProcessing__/graphics/beacon/beacon-'..v[1]..'-1.png', count = v[2]}
+      {file = '__KiwiHawksCircuitProcessing__/graphics/beacon/beacon-'..v[1]..'-1.png', count = v[2]}
     ret['__base__/graphics/entity/beacon/hr-beacon-'..v[1]..'-1.png'] =
-      {file = '__CircuitProcessing__/graphics/beacon/hr-beacon-'..v[1]..'-1.png', count = v[2]}
+      {file = '__KiwiHawksCircuitProcessing__/graphics/beacon/hr-beacon-'..v[1]..'-1.png', count = v[2]}
     ret['__base__/graphics/entity/beacon/beacon-'..v[1]..'-2.png'] =
-      {file = '__CircuitProcessing__/graphics/beacon/beacon-'..v[1]..'-2.png', count = v[2]}
+      {file = '__KiwiHawksCircuitProcessing__/graphics/beacon/beacon-'..v[1]..'-2.png', count = v[2]}
     ret['__base__/graphics/entity/beacon/hr-beacon-'..v[1]..'-2.png'] =
-      {file = '__CircuitProcessing__/graphics/beacon/hr-beacon-'..v[1]..'-2.png', count = v[2]}
+      {file = '__KiwiHawksCircuitProcessing__/graphics/beacon/hr-beacon-'..v[1]..'-2.png', count = v[2]}
   end
   return ret
 end

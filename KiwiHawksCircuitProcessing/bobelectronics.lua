@@ -172,7 +172,7 @@ data.raw.item['advanced-processing-unit'] =
     type = "item",
     name = "advanced-processing-unit",
     localised_name = {"item-name.cp-advanced-processing-unit"},
-    icon = "__CircuitProcessing__/graphics/icons/advanced-processing-unit.png",
+    icon = "__KiwiHawksCircuitProcessing__/graphics/icons/advanced-processing-unit.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
     order = "g[processing-unit]b",
