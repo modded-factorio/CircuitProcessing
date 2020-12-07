@@ -63,11 +63,15 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
       ["-3"] = "-2",
       ["-4"] = "-3"
     }
-    data.raw.technology[s.."-module"..i].icon_size = 128
+    data.raw.technology[s.."-module"..i].icon = nil
+    data.raw.technology[s.."-module"..i].icons = nil
     data.raw.technology[s.."-module"..i].unit.count = cost
     local directory = "__base__"
     if i == "" then
       directory = "__KiwiHawksCircuitProcessing__"
+      data.raw.technology[s.."-module"..i].icon_size = 128
+    else
+      data.raw.technology[s.."-module"..i].icon_size = 256
     end
     data.raw.technology[s.."-module"..i].icon = directory.."/graphics/technology/"..s.."-module"..itemtoname[i]..".png"
     data.raw.technology[s.."-module"..i].localised_name = {"item-name."..s.."-module"..itemtoname[i]}

@@ -4,6 +4,8 @@ Date: ???
   Changes:
     - Forked Circuit Processing
     - Updated to 1.1
+  Bugfixes:
+    - Fixed modules technology icons
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.5
 Date: 18. 8. 2020
