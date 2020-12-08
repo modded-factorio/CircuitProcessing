@@ -70,6 +70,7 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
     if i == "" then
       directory = "__KiwiHawksCircuitProcessing__"
       data.raw.technology[s.."-module"..i].icon_size = 128
+      data.raw.technology[s.."-module"..i].icon_mipmaps = 1
     else
       data.raw.technology[s.."-module"..i].icon_size = 256
     end
