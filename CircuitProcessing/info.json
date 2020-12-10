@@ -1,9 +1,9 @@
 {
-  "name": "KiwiHawksCircuitProcessing",
+  "name": "CircuitProcessing",
   "version": "0.4.0",
   "factorio_version": "1.1",
   "title": "Circuit Processing",
-  "author": "KiwiHawk",
+  "author": "Trainwreck",
   "contact": "",
   "homepage": "https://github.com/KiwiHawk/CircuitProcessing",
   "description": "A mod for Bob's mods. Reintroduces green to red to blue circuit progression. New circuits result in overall increased resource usage. Reduces module count and types.",
