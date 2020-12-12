@@ -7,6 +7,7 @@ Date: ???
   Bugfixes:
     - Fixed modules technology icons
     - Renamed Effectivity Modules to Efficiency Modules to match fix in Bob's Modules Mod
+    - Disabled Agriculture Modules. These will be revisited later
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.5
 Date: 18. 8. 2020
