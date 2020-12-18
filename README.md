@@ -1,4 +1,4 @@
 # Circuit Processing
-Circuit Processing. Fork of Trainwreck's mod.
+Factorio mod Circuit Processing. Created by Trainwreck.
 
 https://mods.factorio.com/mod/CircuitProcessing
