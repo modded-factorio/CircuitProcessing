@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.0
-Date: ???
+Date: 16.12.2020
   Changes:
     - Factorio 1.1 update
     - Disabled Agriculture Modules. These will be revisited later
