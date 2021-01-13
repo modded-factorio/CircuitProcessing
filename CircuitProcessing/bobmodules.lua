@@ -15,8 +15,12 @@ end
 if data.raw.technology['module-merging'] then
   data.raw.technology['module-merging'].enabled = false
 end
+
 takeeffect(data.raw.technology['modules'].effects, 'pollution-clean-processor')
 takeeffect(data.raw.technology['modules'].effects, 'pollution-create-processor')
+lib.hideitem('pollution-clean-processor')
+lib.hideitem('pollution-create-processor')
+
 for i = 1,8 do
   for _,s in pairs({'raw-speed-module-', 'raw-productivity-module-', 'pollution-create-module-', 'pollution-clean-module-', 'green-module-', 'god-module-'}) do
     local str = s .. i
@@ -127,6 +131,11 @@ if data.raw.technology['modules-2'] and data.raw.technology['modules-3'] then
   takeeffect(data.raw.technology['modules-2'].effects, 'pollution-create-processor-2')
   takeeffect(data.raw.technology['modules-3'].effects, 'pollution-clean-processor-3')
   takeeffect(data.raw.technology['modules-3'].effects, 'pollution-create-processor-3')
+  
+  lib.hideitem('pollution-clean-processor-2')
+  lib.hideitem('pollution-create-processor-2')
+  lib.hideitem('pollution-clean-processor-3')
+  lib.hideitem('pollution-create-processor-3')
 
   for _,n in pairs({'speed-module', 'productivity-module', 'effectivity-module'}) do
     local tech2 = data.raw.technology[n .. '-2']
