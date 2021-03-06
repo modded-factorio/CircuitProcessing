@@ -35,7 +35,8 @@ data.raw.recipe['electronic-circuit'] =
       },
       result = "electronic-circuit",
       requester_paste_multiplier = 50,
-      enabled = false
+      enabled = false,
+      allow_decomposition = false
     },
     expensive =
     {
@@ -46,7 +47,8 @@ data.raw.recipe['electronic-circuit'] =
       },
       result = "electronic-circuit",
       requester_paste_multiplier = 50,
-      enabled = false
+      enabled = false,
+      allow_decomposition = false
     },
   }
 
@@ -88,7 +90,8 @@ data.raw.recipe['advanced-circuit'] =
         {"copper-cable", 4}
       }),
       result = "advanced-circuit",
-      requester_paste_multiplier = 5
+      requester_paste_multiplier = 5,
+      allow_decomposition = false
     },
     expensive =
     {
@@ -102,7 +105,8 @@ data.raw.recipe['advanced-circuit'] =
         {"copper-cable", 8}
       }),
       result = "advanced-circuit",
-      requester_paste_multiplier = 5
+      requester_paste_multiplier = 5,
+      allow_decomposition = false
     }
   }
 
@@ -143,7 +147,8 @@ data.raw.recipe['processing-unit'] =
         {"cp-processing-board", 4},
         {type = "fluid", name = "sulfuric-acid", amount = 5}
       }),
-      result = "processing-unit"
+      result = "processing-unit",
+      allow_decomposition = false
     },
     expensive =
     {
@@ -156,7 +161,8 @@ data.raw.recipe['processing-unit'] =
         {"cp-processing-board", 4},
         {type = "fluid", name = "sulfuric-acid", amount = 10}
       }),
-      result = "processing-unit"
+      result = "processing-unit",
+      allow_decomposition = false
     }
   }
 data.raw.recipe['cp-processing-board'].normal.energy_required = 5
@@ -210,11 +216,12 @@ data.raw.recipe['advanced-processing-unit'] =
         {advancedplate, 10},
       {
         {"processing-unit", 3},
-	{"electronic-circuit", 20},
+        {"electronic-circuit", 20},
         {"cp-advanced-processing-board", 9},
         {type = "fluid", name = advancedacid, amount = 5}
       }),
-      result = "advanced-processing-unit"
+      result = "advanced-processing-unit",
+      allow_decomposition = false
     },
     expensive =
     {
@@ -224,11 +231,12 @@ data.raw.recipe['advanced-processing-unit'] =
         {advancedplate, 10},
       {
         {"processing-unit", 3},
-	{"electronic-circuit", 20},
+        {"electronic-circuit", 20},
         {"cp-advanced-processing-board", 9},
         {type = "fluid", name = advancedacid, amount = 10}
       }),
-      result = "advanced-processing-unit"
+      result = "advanced-processing-unit",
+      allow_decomposition = false
     }
   }
 

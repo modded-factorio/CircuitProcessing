@@ -4,6 +4,8 @@ Date: ???
   Changes:
     - Hide pollution module boards
     - Update Japanese locale
+  Bugfixes
+    - Electronic circuit and Advanced circuit will no longer be broken down in Total Raw tooltip
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.0
 Date: 16.12.2020
