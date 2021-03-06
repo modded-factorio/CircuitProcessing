@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.1
-Date: ???
+Date: 06.03.2021
   Changes:
     - Hide pollution module boards
     - Update Japanese locale
