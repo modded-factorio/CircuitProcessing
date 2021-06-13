@@ -191,8 +191,8 @@ data.raw.item['advanced-processing-unit'] =
 local advancedplate = "steel-plate"
 if data.raw.item["angels-plate-chrome"] then
   advancedplate = "angels-plate-chrome"
-elseif data.raw.item["silver-plate"] then
-  advancedplate = "silver-plate"
+elseif data.raw.item["gold-plate"] then
+  advancedplate = "gold-plate"
 end
 local advancedacid = "sulfuric-acid"
 if data.raw.fluid["nitric-acid"] then
@@ -244,6 +244,19 @@ data.raw.recipe['advanced-processing-unit'] =
     }
   }
 
+local cable = {
+  ['copper-cable']=true,
+  ['tinned-copper-cable']=true,
+  ['angels-wire-silver']=true,
+  ['gilded-copper-cable']=true
+}
+
+local components = {
+  'basic-electronic-components',
+  'electronic-components',
+  'intergrated-electronics'
+}
+
 local function doublecable(ingredients)
   for k,v in pairs(ingredients) do
     local idx = 1
@@ -252,14 +265,21 @@ local function doublecable(ingredients)
       idx = 'name'
       amt = 'amount'
     end
-    if v[idx] == 'tinned-copper-cable' or v[idx] == 'copper-cable' then
-      v[amt] = 2
+    if cable[v[idx]] then
+      v[amt] = v[amt] * 2
     end
   end
 end
-doublecable(data.raw.recipe['basic-electronic-components'].normal.ingredients)
+
+for _,v in pairs(components) do
+  if data.raw.recipe[v] then
+    bobmods.lib.recipe.difficulty_split(v)
+    doublecable(data.raw.recipe[v].normal.ingredients)
+    doublecable(data.raw.recipe[v].expensive.ingredients)
+  end
+end
+
 data.raw.recipe['basic-electronic-components'].normal.result_count = 10
-doublecable(data.raw.recipe['basic-electronic-components'].expensive.ingredients)
 data.raw.recipe['basic-electronic-components'].expensive.result_count = 6
 bobmods.lib.recipe.set_difficulty_energy_required('basic-electronic-components', 'normal', 4)
 bobmods.lib.recipe.set_difficulty_energy_required('basic-electronic-components', 'expensive', 6)
