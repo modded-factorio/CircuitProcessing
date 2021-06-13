@@ -279,12 +279,21 @@ for k,v in pairs(data.raw.technology) do
       break
     elseif ev.type == 'unlock-recipe' and ev.recipe == 'advanced-circuit' then
       table.insert(v.effects, ek, {type = 'unlock-recipe', recipe = 'cp-advanced-circuit-board'})
+      if data.raw.technology['angels-aluminium-smelting-1'] then
+        bobmods.lib.tech.add_prerequisite(k, 'angels-aluminium-smelting-1')
+      end
       break
     elseif ev.type == 'unlock-recipe' and ev.recipe == 'processing-unit' then
       table.insert(v.effects, ek, {type = 'unlock-recipe', recipe = 'cp-processing-board'})
+      if data.raw.technology['angels-titanium-smelting-1'] then
+        bobmods.lib.tech.add_prerequisite(k, 'angels-titanium-smelting-1')
+      end
       break
     elseif ev.type == 'unlock-recipe' and ev.recipe == 'advanced-processing-unit' then
       table.insert(v.effects, ek, {type = 'unlock-recipe', recipe = 'cp-advanced-processing-board'})
+      if data.raw.technology['angels-chrome-smelting-1'] then
+        bobmods.lib.tech.add_prerequisite(k, 'angels-chrome-smelting-1')
+      end
       break
     end
   end
