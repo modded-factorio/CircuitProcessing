@@ -73,13 +73,11 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
     local directory = "__base__"
     if i == "" then
       directory = "__CircuitProcessing__"
-      data.raw.technology[s.."-module"..i].icon_size = 128
-      data.raw.technology[s.."-module"..i].icon_mipmaps = 1
-    else
-      data.raw.technology[s.."-module"..i].icon_size = 256
     end
+    data.raw.technology[s.."-module"..i].icon_size = 256
     data.raw.technology[s.."-module"..i].icon = directory.."/graphics/technology/"..s.."-module"..itemtoname[i]..".png"
     data.raw.technology[s.."-module"..i].localised_name = {"item-name."..s.."-module"..itemtoname[i]}
+    data.raw.technology[s.."-module"..i].upgrade = true
 
     if i == "-3" or i == "-4" then
       table.insert(data.raw.technology[s.."-module"..i].unit.ingredients, 1, {'module-case', 1})
@@ -93,8 +91,6 @@ for i = 5,8 do
     if data.raw.technology[str] then
       data.raw.technology[str] = nil
     end
-    --data.raw.module[str] = nil
-    --data.raw.recipe[str] = nil
   end
 end
 
