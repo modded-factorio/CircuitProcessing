@@ -36,4 +36,26 @@ lib.hideitem = function(name)
     end
   end
 end
+
+lib.set_main_product = function(recipe, item)
+  local r = data.raw.recipe[recipe]
+  if
+    type(recipe) == "string" and
+    type(item) == "string" and
+    r
+  then
+    if r.normal then
+      r.normal.main_product = item
+    end
+    if r.expensive then
+      r.expensive.main_product = item
+    end
+    if (not r.normal) and (not r.expensive) then
+      r.main_product = item
+    end
+  else
+    log(debug.traceback())
+  end
+end
+
 return lib

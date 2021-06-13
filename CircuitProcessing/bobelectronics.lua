@@ -19,8 +19,9 @@ data.raw.item['electronic-circuit'] =
 local cpelectroniccircuitboardrecipe = data.raw.recipe['electronic-circuit']
 data.raw.recipe['cp-electronic-circuit-board'] = cpelectroniccircuitboardrecipe
 cpelectroniccircuitboardrecipe.name = 'cp-electronic-circuit-board'
-cpelectroniccircuitboardrecipe.normal.result = 'cp-electronic-circuit-board'
-cpelectroniccircuitboardrecipe.expensive.result = 'cp-electronic-circuit-board'
+bobmods.lib.recipe.remove_result('cp-electronic-circuit-board', 'electronic-circuit')
+bobmods.lib.recipe.add_result('cp-electronic-circuit-board', 'cp-electronic-circuit-board')
+lib.set_main_product('cp-electronic-circuit-board', 'cp-electronic-circuit-board')
 data.raw.recipe['electronic-circuit'] =
   {
     type = "recipe",
@@ -71,8 +72,10 @@ data.raw.item['advanced-circuit'] =
 local cpadvancedcircuitboardrecipe = data.raw.recipe['advanced-circuit']
 data.raw.recipe['cp-advanced-circuit-board'] = cpadvancedcircuitboardrecipe
 cpadvancedcircuitboardrecipe.name = 'cp-advanced-circuit-board'
-cpadvancedcircuitboardrecipe.normal.result = 'cp-advanced-circuit-board'
-cpadvancedcircuitboardrecipe.expensive.result = 'cp-advanced-circuit-board'
+bobmods.lib.recipe.remove_result('cp-advanced-circuit-board', 'advanced-circuit')
+bobmods.lib.recipe.add_result('cp-advanced-circuit-board', 'cp-advanced-circuit-board')
+lib.set_main_product('cp-advanced-circuit-board', 'cp-advanced-circuit-board')
+
 data.raw.recipe['advanced-circuit'] =
   {
     type = "recipe",
@@ -129,8 +132,9 @@ data.raw.item['processing-unit'] =
 local cpprocessingboardrecipe = data.raw.recipe['processing-unit']
 data.raw.recipe['cp-processing-board'] = cpprocessingboardrecipe
 cpprocessingboardrecipe.name = 'cp-processing-board'
-cpprocessingboardrecipe.normal.result = 'cp-processing-board'
-cpprocessingboardrecipe.expensive.result = 'cp-processing-board'
+bobmods.lib.recipe.remove_result('cp-processing-board', 'processing-unit')
+bobmods.lib.recipe.add_result('cp-processing-board', 'cp-processing-board')
+lib.set_main_product('cp-processing-board', 'cp-processing-board')
 data.raw.recipe['processing-unit'] =
   {
     type = "recipe",
@@ -165,9 +169,8 @@ data.raw.recipe['processing-unit'] =
       allow_decomposition = false
     }
   }
-data.raw.recipe['cp-processing-board'].normal.energy_required = 5
-data.raw.recipe['cp-processing-board'].expensive.energy_required = 8
-data.raw.recipe['superior-circuit-board'].energy_required = 5
+bobmods.lib.recipe.set_energy_required('cp-processing-board', 5)
+bobmods.lib.recipe.set_energy_required('superior-circuit-board', 5)
 
 local cpadvancedprocessingboard = data.raw.item['advanced-processing-unit']
 data.raw.item['cp-advanced-processing-board'] = cpadvancedprocessingboard
@@ -195,14 +198,15 @@ local advancedacid = "sulfuric-acid"
 if data.raw.fluid["nitric-acid"] then
   advancedacid = "nitric-acid"
 end
+
 local cpadvancedprocessingboardrecipe = data.raw.recipe['advanced-processing-unit']
 data.raw.recipe['cp-advanced-processing-board'] = cpadvancedprocessingboardrecipe
 cpadvancedprocessingboardrecipe.name = 'cp-advanced-processing-board'
-cpadvancedprocessingboardrecipe.normal.result = 'cp-advanced-processing-board'
-cpadvancedprocessingboardrecipe.expensive.result = 'cp-advanced-processing-board'
-cpadvancedprocessingboardrecipe.normal.energy_required = 5
-cpadvancedprocessingboardrecipe.expensive.energy_required = 5
-data.raw.recipe['multi-layer-circuit-board'].energy_required = 5
+bobmods.lib.recipe.remove_result('cp-advanced-processing-board', 'advanced-processing-unit')
+bobmods.lib.recipe.add_result('cp-advanced-processing-board', 'cp-advanced-processing-board')
+lib.set_main_product('cp-advanced-processing-board', 'cp-advanced-processing-board')
+bobmods.lib.recipe.set_energy_required('cp-advanced-processing-board', 5)
+bobmods.lib.recipe.set_energy_required('multi-layer-circuit-board', 5)
 data.raw.recipe['advanced-processing-unit'] =
   {
     type = "recipe",
@@ -253,12 +257,12 @@ local function doublecable(ingredients)
     end
   end
 end
-data.raw.recipe['basic-electronic-components'].normal.energy_required = 4
 doublecable(data.raw.recipe['basic-electronic-components'].normal.ingredients)
 data.raw.recipe['basic-electronic-components'].normal.result_count = 10
-data.raw.recipe['basic-electronic-components'].expensive.energy_required = 6
 doublecable(data.raw.recipe['basic-electronic-components'].expensive.ingredients)
 data.raw.recipe['basic-electronic-components'].expensive.result_count = 6
+bobmods.lib.recipe.set_difficulty_energy_required('basic-electronic-components', 'normal', 4)
+bobmods.lib.recipe.set_difficulty_energy_required('basic-electronic-components', 'expensive', 6)
 
 local circuits = {
   'cp-advanced-processing-board',
