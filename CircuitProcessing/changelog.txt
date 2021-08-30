@@ -8,6 +8,7 @@ Date: ???
       - Reduced Productivity Module 2 speed penalty from -15% to -14%
       - Reduced Productivity Module 2 productivity bonus from +10% to +8%
     - Renamed circuit boards for consistency
+    - Added item group for circuits
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.2
 Date: 14.08.2021

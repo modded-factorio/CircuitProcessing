@@ -1,5 +1,24 @@
 local lib = require "lib"
 
+if mods['angelsindustries'] then
+  data:extend({
+      {
+        type = 'item-subgroup',
+        name = 'sb-circuit-board',
+        group = 'angels-components',
+        order = 'b[electronics]-cc[sb-circuit-boards]'
+      }
+  })
+else
+  data:extend({
+      {
+        type = 'item-subgroup',
+        name = 'sb-circuit-board',
+        group = 'bob-intermediate-products',
+        order = 'e-a4'
+      }
+  })
+end
 local cpelectroniccircuitboard = data.raw.item['electronic-circuit']
 data.raw.item['cp-electronic-circuit-board'] = cpelectroniccircuitboard
 cpelectroniccircuitboard.name = 'cp-electronic-circuit-board'
@@ -9,7 +28,7 @@ data.raw.item['electronic-circuit'] =
     name = "electronic-circuit",
     icon = "__base__/graphics/icons/electronic-circuit.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "intermediate-product",
+    subgroup = "sb-circuit-board",
     order = "e[electronic-circuit]",
     stack_size = 200
   }
@@ -60,7 +79,7 @@ data.raw.item['advanced-circuit'] =
     name = "advanced-circuit",
     icon = "__base__/graphics/icons/advanced-circuit.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "intermediate-product",
+    subgroup = "sb-circuit-board",
     order = "f[advanced-circuit]",
     stack_size = 200
   }
@@ -118,7 +137,7 @@ data.raw.item['processing-unit'] =
     name = "processing-unit",
     icon = "__base__/graphics/icons/processing-unit.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "intermediate-product",
+    subgroup = "sb-circuit-board",
     order = "g[processing-unit]",
     stack_size = 200
   }
@@ -175,7 +194,7 @@ data.raw.item['advanced-processing-unit'] =
     name = "advanced-processing-unit",
     icon = "__CircuitProcessing__/graphics/icons/advanced-processing-unit.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "intermediate-product",
+    subgroup = "sb-circuit-board",
     order = "g[processing-unit]b",
     stack_size = 200
   }
