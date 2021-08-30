@@ -3,12 +3,10 @@ local lib = require "lib"
 local cpelectroniccircuitboard = data.raw.item['electronic-circuit']
 data.raw.item['cp-electronic-circuit-board'] = cpelectroniccircuitboard
 cpelectroniccircuitboard.name = 'cp-electronic-circuit-board'
-cpelectroniccircuitboard.localised_name = {'item-name.electronic-circuit'}
 data.raw.item['electronic-circuit'] =
   {
     type = "item",
     name = "electronic-circuit",
-    localised_name = {"item-name.cp-electronic-circuit"},
     icon = "__base__/graphics/icons/electronic-circuit.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
@@ -56,12 +54,10 @@ data.raw.recipe['electronic-circuit'] =
 local cpadvancedcircuitboard = data.raw.item['advanced-circuit']
 data.raw.item['cp-advanced-circuit-board'] = cpadvancedcircuitboard
 cpadvancedcircuitboard.name = 'cp-advanced-circuit-board'
-cpadvancedcircuitboard.localised_name = {'item-name.advanced-circuit'}
 data.raw.item['advanced-circuit'] =
   {
     type = "item",
     name = "advanced-circuit",
-    localised_name = {"item-name.cp-advanced-circuit"},
     icon = "__base__/graphics/icons/advanced-circuit.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
@@ -116,12 +112,10 @@ data.raw.recipe['advanced-circuit'] =
 local cpprocessingboard = data.raw.item['processing-unit']
 data.raw.item['cp-processing-board'] = cpprocessingboard
 cpprocessingboard.name = 'cp-processing-board'
-cpprocessingboard.localised_name = {'item-name.processing-unit'}
 data.raw.item['processing-unit'] =
   {
     type = "item",
     name = "processing-unit",
-    localised_name = {"item-name.cp-processing-unit"},
     icon = "__base__/graphics/icons/processing-unit.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
@@ -175,12 +169,10 @@ bobmods.lib.recipe.set_energy_required('superior-circuit-board', 5)
 local cpadvancedprocessingboard = data.raw.item['advanced-processing-unit']
 data.raw.item['cp-advanced-processing-board'] = cpadvancedprocessingboard
 cpadvancedprocessingboard.name = 'cp-advanced-processing-board'
-cpadvancedprocessingboard.localised_name = {'item-name.advanced-processing-unit'}
 data.raw.item['advanced-processing-unit'] =
   {
     type = "item",
     name = "advanced-processing-unit",
-    localised_name = {"item-name.cp-advanced-processing-unit"},
     icon = "__CircuitProcessing__/graphics/icons/advanced-processing-unit.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
