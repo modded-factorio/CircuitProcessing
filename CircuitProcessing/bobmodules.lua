@@ -180,19 +180,19 @@ local effects = {
     productivity = {bonus = 0.04},
     consumption = {bonus = 0.4},
     pollution = {bonus = 0.05},
-    speed = {bonus = -0.15}
+    speed = {bonus = -0.10}
   },
   ['productivity-module-4'] = {
     productivity = {bonus = 0.06},
     consumption = {bonus = 0.6},
     pollution = {bonus = 0.075},
-    speed = {bonus = -0.15}
+    speed = {bonus = -0.12}
   },
   ['productivity-module-6'] = {
-    productivity = {bonus = 0.1},
+    productivity = {bonus = 0.08},
     consumption = {bonus = 0.8},
     pollution = {bonus = 0.1},
-    speed = {bonus = -0.15}
+    speed = {bonus = -0.14}
   },
   ['productivity-module-8'] = {
     productivity = {bonus = 0.12},
