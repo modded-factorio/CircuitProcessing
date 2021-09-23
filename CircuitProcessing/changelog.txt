@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.4
+Date: ???
+  Bugfixes:
+    - Recipes for Bob's pollution cleaning and pollution producing boards were not being hidden #21
+---------------------------------------------------------------------------------------------------
 Version: 0.4.3
 Date: 11.08.2021
   Changes:

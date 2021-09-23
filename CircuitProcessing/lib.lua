@@ -18,7 +18,7 @@ lib.checkplate = function(plate, rest)
   return rest
 end
 
-lib.hideitem = function(name)
+lib.hide_item = function(name)
   -- Add hidden flag to disabled items so they don't show up in circuit menu/item filter/FNEI etc.
   local item = data.raw.item[name]
   if not item then
@@ -52,6 +52,29 @@ lib.set_main_product = function(recipe, item)
     end
     if (not r.normal) and (not r.expensive) then
       r.main_product = item
+    end
+  else
+    log(debug.traceback())
+  end
+end
+
+lib.hide_recipe = function(recipe)
+  local r = data.raw.recipe[recipe]
+  if
+    type(recipe) == "string" and
+    r
+  then
+    if r.normal then
+      r.normal.hidden = true
+      r.normal.enabled = false
+    end
+    if r.expensive then
+      r.expensive.hidden = true
+      r.expensive.enabled = false
+    end
+    if (not r.normal) and (not r.expensive) then
+      r.hidden = true
+      r.enabled = false
     end
   else
     log(debug.traceback())
