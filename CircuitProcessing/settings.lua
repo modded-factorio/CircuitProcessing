@@ -5,7 +5,6 @@ data:extend({
   name = 'cp-override-modules',
   setting_type = 'startup',
   default_value = true,
-  per_user = false
 }
 })
 ]]--
