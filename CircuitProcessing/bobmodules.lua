@@ -69,7 +69,9 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
   table.insert(data.raw.technology[s.."-module-4"].effects,
     takeeffect(data.raw.technology[s.."-module-8"].effects, s.."-module-8"))
   local cost = 50
-  table.insert(data.raw.technology[s.."-module-2"].unit.ingredients, 1, {'module-circuit-board', 1})
+  if bobmods.modules.ModulesLab then
+    bobmods.lib.tech.add_science_pack(s.."-module-2", "module-circuit-board", 1)
+  end
   for _,i in pairs({"", "-2", "-3", "-4"}) do
     local itemtoname = {
       [""] = "-0",
@@ -90,7 +92,9 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
     data.raw.technology[s.."-module"..i].upgrade = true
 
     if i == "-3" or i == "-4" then
-      table.insert(data.raw.technology[s.."-module"..i].unit.ingredients, 1, {'module-case', 1})
+      if bobmods.modules.ModulesLab then
+        bobmods.lib.tech.add_science_pack(s.."-module"..i, "module-case", 1)
+      end
     end
     cost = cost * 2
   end
@@ -377,13 +381,15 @@ for _,v in pairs({'speed', 'effectivity', 'productivity'}) do
   data.raw.module[module8].tier = 4
 end
 
-data.raw.lab['lab-module'].inputs = {
-  'module-case',
-  'module-circuit-board',
-  'speed-processor',
-  'effectivity-processor',
-  'productivity-processor'
-}
+if bobmods.modules.ModulesLab then
+  data.raw.lab['lab-module'].inputs = {
+    'module-case',
+    'module-circuit-board',
+    'speed-processor',
+    'effectivity-processor',
+    'productivity-processor'
+  }
+end
 
 local function makebeacontable()
   local ret = {}

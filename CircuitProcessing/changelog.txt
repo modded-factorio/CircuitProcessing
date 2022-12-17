@@ -1,6 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.5
+Date: ???
+  Changes:
+    - Added compatibility for Bob's Modules setting "Modules lab" #25
+---------------------------------------------------------------------------------------------------
 Version: 0.4.4
-Date: 05.12.2012
+Date: 05.12.2021
   Bugfixes:
     - Recipes for Bob's pollution cleaning and pollution producing boards were not being hidden #21
 ---------------------------------------------------------------------------------------------------
