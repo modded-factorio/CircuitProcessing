@@ -49,10 +49,13 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
   local processor2 = takeeffect(data.raw.technology[s.."-module-3"].effects, s.."-processor-2")
   if processor2 then
     table.insert(data.raw.technology[s.."-module-2"].effects, processor2)
+    bobmods.lib.tech.add_prerequisite(s.."-module-2", "advanced-electronics-2")
   end
   local processor3 = takeeffect(data.raw.technology[s.."-module-6"].effects, s.."-processor-3")
   if processor3 then
     table.insert(data.raw.technology[s.."-module-3"].effects, processor3)
+    bobmods.lib.tech.remove_prerequisite(s.."-module-3", "advanced-electronics-2")
+    bobmods.lib.tech.add_prerequisite(s.."-module-3", "advanced-electronics-3")
   end
   table.insert(data.raw.technology[s.."-module"].effects,
     takeeffect(data.raw.technology[s.."-module-2"].effects, s.."-module-2"))
@@ -71,6 +74,8 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
   local cost = 50
   if bobmods.modules.ModulesLab then
     bobmods.lib.tech.add_science_pack(s.."-module-2", "module-circuit-board", 1)
+  else
+    bobmods.lib.tech.add_science_pack(s.."-module-2", "chemical-science-pack", 1)
   end
   for _,i in pairs({"", "-2", "-3", "-4"}) do
     local itemtoname = {
@@ -94,6 +99,8 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
     if i == "-3" or i == "-4" then
       if bobmods.modules.ModulesLab then
         bobmods.lib.tech.add_science_pack(s.."-module"..i, "module-case", 1)
+      else
+        bobmods.lib.tech.add_science_pack(s.."-module"..i, "production-science-pack", 1)
       end
     end
     cost = cost * 2

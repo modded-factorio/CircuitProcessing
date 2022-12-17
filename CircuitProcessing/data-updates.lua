@@ -13,6 +13,9 @@ data.raw.recipe['rocket-control-unit'].ingredients = {
 }
 data.raw.recipe['rocket-control-unit'].result = 'rocket-control-unit'
 data.raw.recipe['rocket-control-unit'].energy_required = 30
+bobmods.lib.tech.add_prerequisite('rocket-control-unit', 'speed-module')
+bobmods.lib.tech.add_prerequisite("rocket-control-unit", "advanced-electronics-3")
+bobmods.lib.tech.add_science_pack("rocket-control-unit", "production-science-pack", 1)
 
 -- Hide Agriculture Modules. Revisit later, once Angel's devs have finished their changes
 local function disable(name)

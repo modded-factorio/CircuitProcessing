@@ -3,6 +3,7 @@ Version: 0.4.5
 Date: ???
   Changes:
     - Added compatibility for Bob's Modules setting "Modules lab" #25
+    - Added missing tech prerequisites #26
     - Removed "upgrade" flag for module techs so they appear in tech tree #27
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.4
