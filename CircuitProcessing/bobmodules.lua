@@ -89,7 +89,7 @@ for _,s in pairs({"speed", "effectivity", "productivity"}) do
     data.raw.technology[s.."-module"..i].icon_size = 256
     data.raw.technology[s.."-module"..i].icon = directory.."/graphics/technology/"..s.."-module"..itemtoname[i]..".png"
     data.raw.technology[s.."-module"..i].localised_name = {"item-name."..s.."-module"..itemtoname[i]}
-    data.raw.technology[s.."-module"..i].upgrade = true
+    data.raw.technology[s.."-module"..i].upgrade = false
 
     if i == "-3" or i == "-4" then
       if bobmods.modules.ModulesLab then
