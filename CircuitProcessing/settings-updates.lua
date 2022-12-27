@@ -43,4 +43,5 @@ if mods['bobmodules'] then
   overwrite_setting('double-setting', 'bobmods-modules-start-penalty-speed', 0.15)
   overwrite_setting('double-setting', 'bobmods-modules-start-penalty-pollution', 0.02)
   overwrite_setting('double-setting', 'bobmods-modules-start-penalty-consumption', 0.4)
+  overwrite_setting('bool-setting', 'bobmods-modules-enable-modules-lab', false)
 end
