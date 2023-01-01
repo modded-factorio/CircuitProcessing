@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.5
-Date: ???
+Date: 01.01.2023
   Changes:
     - Forced Bob's Modules setting "Modules lab" to False #25
     - Added missing tech prerequisites #26
