@@ -185,13 +185,13 @@ data.raw.recipe['processing-unit'] =
 bobmods.lib.recipe.set_energy_required('cp-processing-board', 5)
 bobmods.lib.recipe.set_energy_required('superior-circuit-board', 5)
 
-local cpadvancedprocessingboard = data.raw.item['advanced-processing-unit']
+local cpadvancedprocessingboard = data.raw.item['bob-advanced-processing-unit']
 data.raw.item['cp-advanced-processing-board'] = cpadvancedprocessingboard
 cpadvancedprocessingboard.name = 'cp-advanced-processing-board'
-data.raw.item['advanced-processing-unit'] =
+data.raw.item['bob-advanced-processing-unit'] =
   {
     type = "item",
-    name = "advanced-processing-unit",
+    name = "bob-advanced-processing-unit",
     icon = "__CircuitProcessing__/graphics/icons/advanced-processing-unit.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "sb-circuit-board",
@@ -210,18 +210,18 @@ if data.raw.fluid["nitric-acid"] then
   advancedacid = "nitric-acid"
 end
 
-local cpadvancedprocessingboardrecipe = data.raw.recipe['advanced-processing-unit']
+local cpadvancedprocessingboardrecipe = data.raw.recipe['bob-advanced-processing-unit']
 data.raw.recipe['cp-advanced-processing-board'] = cpadvancedprocessingboardrecipe
 cpadvancedprocessingboardrecipe.name = 'cp-advanced-processing-board'
-bobmods.lib.recipe.remove_result('cp-advanced-processing-board', 'advanced-processing-unit')
+bobmods.lib.recipe.remove_result('cp-advanced-processing-board', 'bob-advanced-processing-unit')
 bobmods.lib.recipe.add_result('cp-advanced-processing-board', 'cp-advanced-processing-board')
 lib.set_main_product('cp-advanced-processing-board', 'cp-advanced-processing-board')
 bobmods.lib.recipe.set_energy_required('cp-advanced-processing-board', 5)
 bobmods.lib.recipe.set_energy_required('multi-layer-circuit-board', 5)
-data.raw.recipe['advanced-processing-unit'] =
+data.raw.recipe['bob-advanced-processing-unit'] =
   {
     type = "recipe",
-    name = "advanced-processing-unit",
+    name = "bob-advanced-processing-unit",
     category = "electronics-machine",
     normal =
     {
@@ -257,51 +257,43 @@ data.raw.recipe['advanced-processing-unit'] =
 
 local cable = {
   ['copper-cable']=true,
-  ['tinned-copper-cable']=true,
+  ['bob-tinned-copper-cable']=true,
   ['angels-wire-silver']=true,
-  ['gilded-copper-cable']=true
+  ['bob-gilded-copper-cable']=true
 }
 
 local components = {
-  'basic-electronic-components',
-  'electronic-components',
-  'intergrated-electronics'
+  'bob-basic-electronic-components',
+  'bob-electronic-components',
+  'bob-intergrated-electronics'
 }
 
 local function doublecable(ingredients)
-  for k,v in pairs(ingredients) do
-    local idx = 1
-    local amt = 2
-    if v.name then
-      idx = 'name'
-      amt = 'amount'
-    end
-    if cable[v[idx]] then
-      v[amt] = v[amt] * 2
+  for _, ingr in pairs(ingredients) do
+    if cable[ingr.name] then
+      ingr.amount = ingr.amount * 2
     end
   end
 end
 
 for _,v in pairs(components) do
   if data.raw.recipe[v] then
-    bobmods.lib.recipe.difficulty_split(v)
-    doublecable(data.raw.recipe[v].normal.ingredients)
-    doublecable(data.raw.recipe[v].expensive.ingredients)
+    doublecable(data.raw.recipe[v].ingredients)
   end
 end
 
-data.raw.recipe['basic-electronic-components'].normal.result_count = 10
-data.raw.recipe['basic-electronic-components'].expensive.result_count = 6
-bobmods.lib.recipe.set_difficulty_energy_required('basic-electronic-components', 'normal', 4)
-bobmods.lib.recipe.set_difficulty_energy_required('basic-electronic-components', 'expensive', 6)
+data.raw.recipe["bob-basic-electronic-components"].results[1].amount = 10
+bobmods.lib.recipe.set_energy_required('bob-basic-electronic-components', 4)
 
-local circuits = {
-  'cp-advanced-processing-board',
-  'cp-processing-board',
-  'cp-advanced-circuit-board',
-  'cp-electronic-circuit-board'
-}
-bobmods.lib.module.add_productivity_limitations(circuits)
+-- local circuits = {
+--   'cp-advanced-processing-board',
+--   'cp-processing-board',
+--   'cp-advanced-circuit-board',
+--   'cp-electronic-circuit-board'
+-- }
+
+-- TODO figure out what productivity_limitations did: https://github.com/modded-factorio/bobsmods/blob/492bd544746b867b377795f5c6a8d2b8b0bc6a52/boblibrary/module-functions.lua#L16
+-- bobmods.lib.module.add_productivity_limitations(circuits)
 
 for k,v in pairs(data.raw.technology) do
   for ek,ev in pairs(v.effects or {}) do
