@@ -28,12 +28,7 @@ lib.hide_item = function(name)
     item = data.raw.tool[name]
   end
   if item then
-    if not item.flags then
-      item.flags = {}
-    end
-    if not lib.tablefind(item.flags, "hidden") then
-      table.insert(item.flags, "hidden")
-    end
+    item.hidden = true
   end
 end
 
@@ -57,28 +52,16 @@ lib.set_main_product = function(recipe, item)
     log(debug.traceback())
   end
 end
-
 lib.hide_recipe = function(recipe)
-  local r = data.raw.recipe[recipe]
-  if
-    type(recipe) == "string" and
-    r
-  then
-    if r.normal then
-      r.normal.hidden = true
-      r.normal.enabled = false
+    local r = data.raw.recipe[recipe]
+    if
+        type(recipe) == "string" and
+        r
+    then
+        r.hidden = true
+        r.enabled = false
+    else
+        log(debug.traceback())
     end
-    if r.expensive then
-      r.expensive.hidden = true
-      r.expensive.enabled = false
-    end
-    if (not r.normal) and (not r.expensive) then
-      r.hidden = true
-      r.enabled = false
-    end
-  else
-    log(debug.traceback())
-  end
 end
-
 return lib
