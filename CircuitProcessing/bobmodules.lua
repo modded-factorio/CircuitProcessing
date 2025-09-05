@@ -32,41 +32,46 @@ for i = 1,5 do
     end
 end
 
--- local function module_name_builder(module_name, level)
---     if (level == 1) then return module_name.."-module" end
---     if (level <= 3) then return module_name.."-module-"..level
---     else
---         return "bob-"..module_name.."-module-"..level
---     end
--- end
+-- balance cost of modules
+for _, module_name in pairs({ "speed", "productivity", "efficiency" }) do
+    -- modules-1
+    replace_recipe_ingredient(module_name.."-module", "electronic-circuit", "electronic-circuit", 6)
+    add_recipe_ingredient(module_name.."-module", "advanced-circuit", 6)
+    bobmods.lib.tech.add_prerequisite(module_name.."-module", "advanced-circuit")
 
--- --replace effects and techs of existing modules
--- local techs = data.raw["technology"]
+    --module-2
+    replace_recipe_ingredient(module_name.."-module-2", "advanced-circuit", "advanced-circuit", 5)
+    replace_recipe_ingredient(module_name.."-module-2", module_name.."-module", module_name.."-module", 4)
+    add_recipe_ingredient(module_name.."-module-2", "processing-unit", 5)
+    bobmods.lib.tech.add_prerequisite(module_name.."-module-2", "processing-unit")
 
--- for _, module_name in pairs({ "speed", "efficiency", "productivity" }) do
---     techs[module_name.."-module"].effects = { -- module-0
---         { type = "unlock-recipe", recipe = "efficiency-module-2" },
---         { type = "unlock-recipe", recipe = "bob-efficiency-processor" },
---         { type = "unlock-recipe", recipe = "efficiency-module" }
---     }
+    --module-3
+    replace_recipe_ingredient(module_name.."-module-3", "processing-unit", "processing-unit", 5)
+    replace_recipe_ingredient(module_name.."-module-3", module_name.."-module-2", module_name.."-module", 4)
+    add_recipe_ingredient(module_name.."-module-3", "bob-advanced-processing-unit", 5)
+    bobmods.lib.tech.add_prerequisite(module_name.."-module-3", "bob-advanced-processing-unit")
 
---     techs[module_name.."-module-2"].effects = { -- module-1
---         { type = "unlock-recipe", recipe = "efficiency-module-3" },
---         { type = "unlock-recipe", recipe = "bob-efficiency-processor" },
---         { type = "unlock-recipe", recipe = "efficiency-module" }
---     }
--- end
+    --module-4
+    replace_recipe_ingredient("bob-"..module_name.."-module-4", module_name.."-module-3", module_name.."-module", 3)
+    add_recipe_ingredient("bob-"..module_name.."-module-4", "processing-unit", 10)
 
--- --remove bob-god-module
--- data.raw["technology"]["bob-god-module"] = nil
--- data.raw["recipe"]["bob-god-module"] = nil
--- data.raw["module"]["bob-god-module"] = nil
+    --module-5
+    replace_recipe_ingredient("bob-"..module_name.."-module-5", module_name.."-module-4", module_name.."-module", 2)
+end
 
--- --remove all other bobmodules
--- for i = 4,5 do
---     for _, module_name in pairs({ "speed", "efficiency", "productivity" }) do
---         data.raw["technology"][module_name_builder(module_name)..i] = nil
---         data.raw["recipe"][module_name_builder(module_name)..i] = nil
---         data.raw["module"][module_name_builder(module_name)..i] = nil
---     end
--- end
+--balance cost of agricultural modules
+replace_recipe_ingredient("angels-bio-yield-module", "efficiency-module", "efficiency-module", 2)
+replace_recipe_ingredient("angels-bio-yield-module", "productivity-module", "productivity-module", 2)
+replace_recipe_ingredient("angels-bio-yield-module", "angels-token-bio", "angels-token-bio", 5)
+
+replace_recipe_ingredient("angels-bio-yield-module-2", "angels-bio-yield-module", "angels-bio-yield-module", 4)
+replace_recipe_ingredient("angels-bio-yield-module-2", "angels-token-bio", "angels-token-bio", 5)
+
+replace_recipe_ingredient("angels-bio-yield-module-3", "angels-bio-yield-module-2", "angels-bio-yield-module-2", 4)
+replace_recipe_ingredient("angels-bio-yield-module-3", "angels-token-bio", "angels-token-bio", 5)
+
+replace_recipe_ingredient("angels-bio-yield-module-4", "angels-bio-yield-module-3", "angels-bio-yield-module-3", 3)
+replace_recipe_ingredient("angels-bio-yield-module-4", "angels-token-bio", "angels-token-bio", 10)
+
+replace_recipe_ingredient("angels-bio-yield-module-5", "angels-bio-yield-module-4", "angels-bio-yield-module-4", 2)
+replace_recipe_ingredient("angels-bio-yield-module-5", "angels-token-bio", "angels-token-bio", 10)
