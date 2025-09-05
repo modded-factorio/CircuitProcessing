@@ -10,7 +10,7 @@ lib.tablefind = function(table, item)
 end
 
 lib.checkplate = function(plate, rest)
-  if data.raw.item[plate[1]] then
+  if data.raw.item[plate.name] then
     local newtable = table.deepcopy(rest)
     table.insert(newtable, plate)
     return newtable

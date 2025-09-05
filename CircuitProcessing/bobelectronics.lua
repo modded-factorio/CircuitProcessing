@@ -83,11 +83,11 @@ data.raw.recipe['advanced-circuit'] =
     enabled = false,
     energy_required = 6,
     ingredients = lib.checkplate(
-        {"bob-aluminium-plate", 4},
+        { type = "item", name = "bob-aluminium-plate", amount = 4 },
     {
-        {"electronic-circuit", 2},
-        {"cp-advanced-circuit-board", 2},
-        {"copper-cable", 4}
+        { type = "item", name = "electronic-circuit", amount = 2 },
+        { type = "item", name = "cp-advanced-circuit-board", amount = 2 },
+        { type = "item", name = "copper-cable", amount = 4 }
     }),
     results = { type = "item", name = "advanced-circuit", amount = 1 },
     requester_paste_multiplier = 5,
@@ -122,7 +122,7 @@ data.raw.recipe['processing-unit'] =
     enabled = false,
     energy_required = 10,
     ingredients = lib.checkplate(
-        {"bob-titanium-plate", 8},
+        { type = "item", name = "bob-titanium-plate", amount = 8 },
     {
         { type = "item", name = "advanced-circuit", amount = 4 },
         { type = "item", name = "cp-processing-board", amount = 4 },
@@ -175,7 +175,7 @@ data.raw.recipe['bob-advanced-processing-unit'] =
     enabled = false,
     energy_required = 15,
     ingredients = lib.checkplate(
-        {advancedplate, 10},
+        { type = "item", name = advancedplate, amount = 10 },
     {
         { type = "item", name = "processing-unit", amount = 3 },
         { type = "item", name = "electronic-circuit", amount = 2 },
