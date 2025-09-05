@@ -48,7 +48,7 @@ data.raw.recipe['electronic-circuit'] =
         { type = "item", name = "cp-electronic-circuit-board", amount = 1 },
         { type = "item", name = "iron-plate", amount = 2 }
     },
-    results = { type = "item", name = "electronic-circuit", amount = 1 },
+    results = { {type = "item", name = "electronic-circuit", amount = 1} },
     requester_paste_multiplier = 50,
     enabled = false,
     allow_decomposition = false
@@ -89,7 +89,7 @@ data.raw.recipe['advanced-circuit'] =
         { type = "item", name = "cp-advanced-circuit-board", amount = 2 },
         { type = "item", name = "copper-cable", amount = 4 }
     }),
-    results = { type = "item", name = "advanced-circuit", amount = 1 },
+    results = { {type = "item", name = "advanced-circuit", amount = 1} },
     requester_paste_multiplier = 5,
     allow_decomposition = false
 }
@@ -128,7 +128,7 @@ data.raw.recipe['processing-unit'] =
         { type = "item", name = "cp-processing-board", amount = 4 },
         { type = "fluid", name = "sulfuric-acid", amount = 5 }
     }),
-    results = { type = "item", name = "processing-unit", amount = 1 },
+    results = { {type = "item", name = "processing-unit", amount = 1} },
     allow_decomposition = false
   }
 bobmods.lib.recipe.set_energy_required('cp-processing-board', 5)
@@ -182,7 +182,7 @@ data.raw.recipe['bob-advanced-processing-unit'] =
         { type = "item", name = "cp-advanced-processing-board", amount = 9},
         { type = "fluid", name = advancedacid, amount = 5 }
     }),
-    results = { type = "item", name = "bob-advanced-processing-unit", amount = 1 },
+    results = { {type = "item", name = "bob-advanced-processing-unit", amount = 1} },
     allow_decomposition = false
   }
 
