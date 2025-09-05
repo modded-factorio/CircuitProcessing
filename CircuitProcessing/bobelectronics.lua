@@ -44,30 +44,14 @@ data.raw.recipe['electronic-circuit'] =
     type = "recipe",
     name = "electronic-circuit",
     category = "electronics",
-    normal =
-    {
-      ingredients =
-      {
-        {"cp-electronic-circuit-board", 1},
-        {"iron-plate", 2}
-      },
-      result = "electronic-circuit",
-      requester_paste_multiplier = 50,
-      enabled = false,
-      allow_decomposition = false
+    ingredients = {
+        { type = "item", name = "cp-electronic-circuit-board", amount = 1 },
+        { type = "item", name = "iron-plate", amount = 2 }
     },
-    expensive =
-    {
-      ingredients =
-      {
-        {"cp-electronic-circuit-board", 1},
-        {"iron-plate", 4}
-      },
-      result = "electronic-circuit",
-      requester_paste_multiplier = 50,
-      enabled = false,
-      allow_decomposition = false
-    },
+    results = { type = "item", name = "electronic-circuit", amount = 1 },
+    requester_paste_multiplier = 50,
+    enabled = false,
+    allow_decomposition = false
   }
 
 local cpadvancedcircuitboard = data.raw.item['advanced-circuit']
@@ -96,37 +80,19 @@ data.raw.recipe['advanced-circuit'] =
     type = "recipe",
     name = "advanced-circuit",
     category = "electronics",
-    normal =
+    enabled = false,
+    energy_required = 6,
+    ingredients = lib.checkplate(
+        {"bob-aluminium-plate", 4},
     {
-      enabled = false,
-      energy_required = 6,
-      ingredients = lib.checkplate(
-        {"aluminium-plate", 4},
-      {
         {"electronic-circuit", 2},
         {"cp-advanced-circuit-board", 2},
         {"copper-cable", 4}
-      }),
-      result = "advanced-circuit",
-      requester_paste_multiplier = 5,
-      allow_decomposition = false
-    },
-    expensive =
-    {
-      enabled = false,
-      energy_required = 6,
-      ingredients = lib.checkplate(
-        {"aluminium-plate", 4},
-      {
-        {"electronic-circuit", 2},
-        {"cp-advanced-circuit-board", 4},
-        {"copper-cable", 8}
-      }),
-      result = "advanced-circuit",
-      requester_paste_multiplier = 5,
-      allow_decomposition = false
-    }
-  }
+    }),
+    results = { type = "item", name = "advanced-circuit", amount = 1 },
+    requester_paste_multiplier = 5,
+    allow_decomposition = false
+}
 
 local cpprocessingboard = data.raw.item['processing-unit']
 data.raw.item['cp-processing-board'] = cpprocessingboard
@@ -153,37 +119,20 @@ data.raw.recipe['processing-unit'] =
     type = "recipe",
     name = "processing-unit",
     category = "electronics-machine",
-    normal =
+    enabled = false,
+    energy_required = 10,
+    ingredients = lib.checkplate(
+        {"bob-titanium-plate", 8},
     {
-      enabled = false,
-      energy_required = 10,
-      ingredients = lib.checkplate(
-        {"titanium-plate", 8},
-      {
-        {"advanced-circuit", 4},
-        {"cp-processing-board", 4},
-        {type = "fluid", name = "sulfuric-acid", amount = 5}
-      }),
-      result = "processing-unit",
-      allow_decomposition = false
-    },
-    expensive =
-    {
-      enabled = false,
-      energy_required = 10,
-      ingredients = lib.checkplate(
-        {"titanium-plate", 8},
-      {
-        {"advanced-circuit", 4},
-        {"cp-processing-board", 4},
-        {type = "fluid", name = "sulfuric-acid", amount = 10}
-      }),
-      result = "processing-unit",
-      allow_decomposition = false
-    }
+        { type = "item", name = "advanced-circuit", amount = 4 },
+        { type = "item", name = "cp-processing-board", amount = 4 },
+        { type = "fluid", name = "sulfuric-acid", amount = 5 }
+    }),
+    results = { type = "item", name = "processing-unit", amount = 1 },
+    allow_decomposition = false
   }
 bobmods.lib.recipe.set_energy_required('cp-processing-board', 5)
-bobmods.lib.recipe.set_energy_required('superior-circuit-board', 5)
+bobmods.lib.recipe.set_energy_required('bob-superior-circuit-board', 5)
 
 local cpadvancedprocessingboard = data.raw.item['bob-advanced-processing-unit']
 data.raw.item['cp-advanced-processing-board'] = cpadvancedprocessingboard
@@ -202,12 +151,12 @@ data.raw.item['bob-advanced-processing-unit'] =
 local advancedplate = "steel-plate"
 if data.raw.item["angels-plate-chrome"] then
   advancedplate = "angels-plate-chrome"
-elseif data.raw.item["gold-plate"] then
-  advancedplate = "gold-plate"
+elseif data.raw.item["bob-gold-plate"] then
+  advancedplate = "bob-gold-plate"
 end
 local advancedacid = "sulfuric-acid"
-if data.raw.fluid["nitric-acid"] then
-  advancedacid = "nitric-acid"
+if data.raw.fluid["bob-nitric-acid"] then
+  advancedacid = "bob-nitric-acid"
 end
 
 local cpadvancedprocessingboardrecipe = data.raw.recipe['bob-advanced-processing-unit']
@@ -217,42 +166,24 @@ bobmods.lib.recipe.remove_result('cp-advanced-processing-board', 'bob-advanced-p
 bobmods.lib.recipe.add_result('cp-advanced-processing-board', 'cp-advanced-processing-board')
 lib.set_main_product('cp-advanced-processing-board', 'cp-advanced-processing-board')
 bobmods.lib.recipe.set_energy_required('cp-advanced-processing-board', 5)
-bobmods.lib.recipe.set_energy_required('multi-layer-circuit-board', 5)
+bobmods.lib.recipe.set_energy_required('bob-multi-layer-circuit-board', 5)
 data.raw.recipe['bob-advanced-processing-unit'] =
   {
     type = "recipe",
     name = "bob-advanced-processing-unit",
     category = "electronics-machine",
-    normal =
-    {
-      enabled = false,
-      energy_required = 15,
-      ingredients = lib.checkplate(
+    enabled = false,
+    energy_required = 15,
+    ingredients = lib.checkplate(
         {advancedplate, 10},
-      {
-        {"processing-unit", 3},
-        {"electronic-circuit", 20},
-        {"cp-advanced-processing-board", 9},
-        {type = "fluid", name = advancedacid, amount = 5}
-      }),
-      result = "advanced-processing-unit",
-      allow_decomposition = false
-    },
-    expensive =
     {
-      enabled = false,
-      energy_required = 15,
-      ingredients = lib.checkplate(
-        {advancedplate, 10},
-      {
-        {"processing-unit", 3},
-        {"electronic-circuit", 20},
-        {"cp-advanced-processing-board", 9},
-        {type = "fluid", name = advancedacid, amount = 10}
-      }),
-      result = "advanced-processing-unit",
-      allow_decomposition = false
-    }
+        { type = "item", name = "processing-unit", amount = 3 },
+        { type = "item", name = "electronic-circuit", amount = 2 },
+        { type = "item", name = "cp-advanced-processing-board", amount = 9},
+        { type = "fluid", name = advancedacid, amount = 5 }
+    }),
+    results = { type = "item", name = "bob-advanced-processing-unit", amount = 1 },
+    allow_decomposition = false
   }
 
 local cable = {
@@ -312,7 +243,7 @@ for k,v in pairs(data.raw.technology) do
         bobmods.lib.tech.add_prerequisite(k, 'angels-titanium-smelting-1')
       end
       break
-    elseif ev.type == 'unlock-recipe' and ev.recipe == 'advanced-processing-unit' then
+    elseif ev.type == 'unlock-recipe' and ev.recipe == 'bob-advanced-processing-unit' then
       table.insert(v.effects, ek, {type = 'unlock-recipe', recipe = 'cp-advanced-processing-board'})
       if data.raw.technology['angels-chrome-smelting-1'] then
         bobmods.lib.tech.add_prerequisite(k, 'angels-chrome-smelting-1')
