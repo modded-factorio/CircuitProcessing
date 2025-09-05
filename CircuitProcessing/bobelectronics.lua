@@ -36,9 +36,11 @@ data.raw.item['electronic-circuit'] =
 local cpelectroniccircuitboardrecipe = data.raw.recipe['electronic-circuit']
 data.raw.recipe['cp-electronic-circuit-board'] = cpelectroniccircuitboardrecipe
 cpelectroniccircuitboardrecipe.name = 'cp-electronic-circuit-board'
-bobmods.lib.recipe.remove_result('cp-electronic-circuit-board', 'electronic-circuit')
-bobmods.lib.recipe.add_result('cp-electronic-circuit-board', 'cp-electronic-circuit-board')
+data.raw.recipe["cp-electronic-circuit-board"].results = {
+    { type = "item", name = "cp-electronic-circuit-board", amount = 1 }
+}
 lib.set_main_product('cp-electronic-circuit-board', 'cp-electronic-circuit-board')
+
 data.raw.recipe['electronic-circuit'] =
   {
     type = "recipe",
@@ -71,8 +73,10 @@ data.raw.item['advanced-circuit'] =
 local cpadvancedcircuitboardrecipe = data.raw.recipe['advanced-circuit']
 data.raw.recipe['cp-advanced-circuit-board'] = cpadvancedcircuitboardrecipe
 cpadvancedcircuitboardrecipe.name = 'cp-advanced-circuit-board'
-bobmods.lib.recipe.remove_result('cp-advanced-circuit-board', 'advanced-circuit')
-bobmods.lib.recipe.add_result('cp-advanced-circuit-board', 'cp-advanced-circuit-board')
+
+data.raw.recipe["cp-advanced-circuit-board"].results = {
+    { type = "item", name = "cp-advanced-circuit-board", amount = 1 }
+}
 lib.set_main_product('cp-advanced-circuit-board', 'cp-advanced-circuit-board')
 
 data.raw.recipe['advanced-circuit'] =
@@ -111,8 +115,10 @@ data.raw.item['processing-unit'] =
 local cpprocessingboardrecipe = data.raw.recipe['processing-unit']
 data.raw.recipe['cp-processing-board'] = cpprocessingboardrecipe
 cpprocessingboardrecipe.name = 'cp-processing-board'
-bobmods.lib.recipe.remove_result('cp-processing-board', 'processing-unit')
-bobmods.lib.recipe.add_result('cp-processing-board', 'cp-processing-board')
+
+data.raw.recipe["cp-processing-board"].results = {
+    { type = "item", name = "cp-processing-board", amount = 1 }
+}
 lib.set_main_product('cp-processing-board', 'cp-processing-board')
 data.raw.recipe['processing-unit'] =
   {
@@ -162,11 +168,14 @@ end
 local cpadvancedprocessingboardrecipe = data.raw.recipe['bob-advanced-processing-unit']
 data.raw.recipe['cp-advanced-processing-board'] = cpadvancedprocessingboardrecipe
 cpadvancedprocessingboardrecipe.name = 'cp-advanced-processing-board'
-bobmods.lib.recipe.remove_result('cp-advanced-processing-board', 'bob-advanced-processing-unit')
-bobmods.lib.recipe.add_result('cp-advanced-processing-board', 'cp-advanced-processing-board')
+
+data.raw.recipe["cp-advanced-processing-board"].results = {
+    { type = "item", name = "cp-advanced-processing-board", amount = 1 }
+}
 lib.set_main_product('cp-advanced-processing-board', 'cp-advanced-processing-board')
 bobmods.lib.recipe.set_energy_required('cp-advanced-processing-board', 5)
 bobmods.lib.recipe.set_energy_required('bob-multi-layer-circuit-board', 5)
+
 data.raw.recipe['bob-advanced-processing-unit'] =
   {
     type = "recipe",
