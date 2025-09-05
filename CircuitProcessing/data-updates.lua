@@ -12,7 +12,7 @@ local function disable(name)
     data.raw.recipe[name].hidden = true
   end
   if data.raw.module[name] then
-    data.raw.module[name].flags = {'hidden'}
+    data.raw.module[name].hidden = true
   end
 end
 for _,v in pairs({
