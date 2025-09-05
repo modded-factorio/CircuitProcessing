@@ -1,6 +1,5 @@
 require "bobelectronics"
--- Bobmodules had a massive revamp, no changes needed imo
--- require "bobmodules"
+require "bobmodules"
 
 -- Hide Agriculture Modules. Revisit later, once Angel's devs have finished their changes
 local function disable(name)
