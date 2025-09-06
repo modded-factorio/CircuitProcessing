@@ -35,43 +35,57 @@ end
 -- balance cost of modules
 for _, module_name in pairs({ "speed", "productivity", "efficiency" }) do
     -- modules-1
-    replace_recipe_ingredient(module_name.."-module", "electronic-circuit", "electronic-circuit", 6)
-    add_recipe_ingredient(module_name.."-module", "advanced-circuit", 6)
+    lib.replace_recipe_ingredient(module_name.."-module", "electronic-circuit", "electronic-circuit", 6)
+    lib.add_recipe_ingredient(module_name.."-module", "advanced-circuit", 6)
     bobmods.lib.tech.add_prerequisite(module_name.."-module", "advanced-circuit")
 
     --module-2
-    replace_recipe_ingredient(module_name.."-module-2", "advanced-circuit", "advanced-circuit", 5)
-    replace_recipe_ingredient(module_name.."-module-2", module_name.."-module", module_name.."-module", 4)
-    add_recipe_ingredient(module_name.."-module-2", "processing-unit", 5)
+    lib.replace_recipe_ingredient(module_name.."-module-2", "advanced-circuit", "advanced-circuit", 5)
+    lib.replace_recipe_ingredient(module_name.."-module-2", module_name.."-module", module_name.."-module", 4)
+    lib.add_recipe_ingredient(module_name.."-module-2", "processing-unit", 5)
     bobmods.lib.tech.add_prerequisite(module_name.."-module-2", "processing-unit")
 
     --module-3
-    replace_recipe_ingredient(module_name.."-module-3", "processing-unit", "processing-unit", 5)
-    replace_recipe_ingredient(module_name.."-module-3", module_name.."-module-2", module_name.."-module", 4)
-    add_recipe_ingredient(module_name.."-module-3", "bob-advanced-processing-unit", 5)
+    lib.replace_recipe_ingredient(module_name.."-module-3", "processing-unit", "processing-unit", 5)
+    lib.replace_recipe_ingredient(module_name.."-module-3", module_name.."-module-2", module_name.."-module", 4)
+    lib.add_recipe_ingredient(module_name.."-module-3", "bob-advanced-processing-unit", 5)
     bobmods.lib.tech.add_prerequisite(module_name.."-module-3", "bob-advanced-processing-unit")
 
     --module-4
-    replace_recipe_ingredient("bob-"..module_name.."-module-4", module_name.."-module-3", module_name.."-module", 3)
-    add_recipe_ingredient("bob-"..module_name.."-module-4", "processing-unit", 10)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-4", module_name.."-module-3", module_name.."-module", 3)
+    lib.add_recipe_ingredient("bob-"..module_name.."-module-4", "processing-unit", 10)
 
     --module-5
-    replace_recipe_ingredient("bob-"..module_name.."-module-5", module_name.."-module-4", module_name.."-module", 2)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", module_name.."-module-4", module_name.."-module", 2)
 end
 
 --balance cost of agricultural modules
-replace_recipe_ingredient("angels-bio-yield-module", "efficiency-module", "efficiency-module", 2)
-replace_recipe_ingredient("angels-bio-yield-module", "productivity-module", "productivity-module", 2)
-replace_recipe_ingredient("angels-bio-yield-module", "angels-token-bio", "angels-token-bio", 5)
+lib.replace_recipe_ingredient("angels-bio-yield-module", "efficiency-module", "efficiency-module", 2)
+lib.replace_recipe_ingredient("angels-bio-yield-module", "productivity-module", "productivity-module", 2)
+lib.replace_recipe_ingredient("angels-bio-yield-module", "angels-token-bio", "angels-token-bio", 5)
 
-replace_recipe_ingredient("angels-bio-yield-module-2", "angels-bio-yield-module", "angels-bio-yield-module", 4)
-replace_recipe_ingredient("angels-bio-yield-module-2", "angels-token-bio", "angels-token-bio", 5)
+lib.replace_recipe_ingredient("angels-bio-yield-module-2", "angels-bio-yield-module", "angels-bio-yield-module", 4)
+lib.replace_recipe_ingredient("angels-bio-yield-module-2", "angels-token-bio", "angels-token-bio", 5)
 
-replace_recipe_ingredient("angels-bio-yield-module-3", "angels-bio-yield-module-2", "angels-bio-yield-module-2", 4)
-replace_recipe_ingredient("angels-bio-yield-module-3", "angels-token-bio", "angels-token-bio", 5)
+lib.replace_recipe_ingredient("angels-bio-yield-module-3", "angels-bio-yield-module-2", "angels-bio-yield-module-2", 4)
+lib.replace_recipe_ingredient("angels-bio-yield-module-3", "angels-token-bio", "angels-token-bio", 5)
 
-replace_recipe_ingredient("angels-bio-yield-module-4", "angels-bio-yield-module-3", "angels-bio-yield-module-3", 3)
-replace_recipe_ingredient("angels-bio-yield-module-4", "angels-token-bio", "angels-token-bio", 10)
+lib.replace_recipe_ingredient("angels-bio-yield-module-4", "angels-bio-yield-module-3", "angels-bio-yield-module-3", 3)
+lib.replace_recipe_ingredient("angels-bio-yield-module-4", "angels-token-bio", "angels-token-bio", 10)
 
-replace_recipe_ingredient("angels-bio-yield-module-5", "angels-bio-yield-module-4", "angels-bio-yield-module-4", 2)
-replace_recipe_ingredient("angels-bio-yield-module-5", "angels-token-bio", "angels-token-bio", 10)
+lib.replace_recipe_ingredient("angels-bio-yield-module-5", "angels-bio-yield-module-4", "angels-bio-yield-module-4", 2)
+lib.replace_recipe_ingredient("angels-bio-yield-module-5", "angels-token-bio", "angels-token-bio", 10)
+
+--added consumption_modifier to agriculture module since it now has efficiency module as ingredient
+lib.add_module_effect("angels-bio-yield-module", "consumption", -0.1)
+lib.add_module_effect("angels-bio-yield-module-2", "consumption", -0.1)
+lib.add_module_effect("angels-bio-yield-module-3", "consumption", -0.2)
+lib.add_module_effect("angels-bio-yield-module-4", "consumption", -0.2)
+lib.add_module_effect("angels-bio-yield-module-5", "consumption", -0.3)
+
+--reworked pollution_modifier of agriculture module since it now lacks the pollution create module
+lib.add_module_effect("angels-bio-yield-module", "pollution", nil)
+lib.add_module_effect("angels-bio-yield-module-2", "pollution", nil)
+lib.add_module_effect("angels-bio-yield-module-3", "pollution", nil)
+lib.add_module_effect("angels-bio-yield-module-4", "pollution", nil)
+lib.add_module_effect("angels-bio-yield-module-5", "pollution", nil)
