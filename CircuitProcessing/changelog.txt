@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.0
+Date: 06.09.2025
+  Changes:
+    - Factorio 2.0 update
+    - Enabled Angel's Agriculture Modules
+    - Updated module cost and effects
+    - Renamed components of Bob's
+---------------------------------------------------------------------------------------------------
 Version: 0.4.5
 Date: 01.01.2023
   Changes:
