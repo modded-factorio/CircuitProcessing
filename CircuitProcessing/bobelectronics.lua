@@ -137,8 +137,8 @@ data.raw.recipe['processing-unit'] =
     results = { {type = "item", name = "processing-unit", amount = 1} },
     allow_decomposition = false
   }
-bobmods.lib.recipe.set_energy_required('cp-processing-board', 5)
-bobmods.lib.recipe.set_energy_required('bob-superior-circuit-board', 5)
+lib.set_energy_required('cp-processing-board', 5)
+lib.set_energy_required('bob-superior-circuit-board', 5)
 
 local cpadvancedprocessingboard = data.raw.item['bob-advanced-processing-unit']
 data.raw.item['cp-advanced-processing-board'] = cpadvancedprocessingboard
@@ -173,8 +173,8 @@ data.raw.recipe["cp-advanced-processing-board"].results = {
     { type = "item", name = "cp-advanced-processing-board", amount = 1 }
 }
 lib.set_main_product('cp-advanced-processing-board', 'cp-advanced-processing-board')
-bobmods.lib.recipe.set_energy_required('cp-advanced-processing-board', 5)
-bobmods.lib.recipe.set_energy_required('bob-multi-layer-circuit-board', 5)
+lib.set_energy_required('cp-advanced-processing-board', 5)
+lib.set_energy_required('bob-multi-layer-circuit-board', 5)
 
 data.raw.recipe['bob-advanced-processing-unit'] =
   {
@@ -223,7 +223,7 @@ for _,v in pairs(components) do
 end
 
 data.raw.recipe["bob-basic-electronic-components"].results[1].amount = 10
-bobmods.lib.recipe.set_energy_required('bob-basic-electronic-components', 4)
+lib.set_energy_required('bob-basic-electronic-components', 4)
 
 -- local circuits = {
 --   'cp-advanced-processing-board',
