@@ -64,4 +64,14 @@ lib.hide_recipe = function(recipe)
         log(debug.traceback())
     end
 end
+
+lib.set_energy_required = function(recipe, energy)
+    local r = data.raw.recipe[recipe]
+    if type(recipe) == "string" and type(energy) == "number" and r then
+        r.energy_required = energy
+    else
+        log(debug.traceback())
+    end
+end
+
 return lib
