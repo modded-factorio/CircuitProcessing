@@ -14,7 +14,7 @@ else
       {
         type = 'item-subgroup',
         name = 'sb-circuit-board',
-        group = 'bob-intermediate-products',
+        group = 'intermediate-products',
         order = 'e-a4'
       }
   })
