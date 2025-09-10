@@ -39,15 +39,7 @@ lib.set_main_product = function(recipe, item)
     type(item) == "string" and
     r
   then
-    if r.normal then
-      r.normal.main_product = item
-    end
-    if r.expensive then
-      r.expensive.main_product = item
-    end
-    if (not r.normal) and (not r.expensive) then
-      r.main_product = item
-    end
+    r.main_product = item
   else
     log(debug.traceback())
   end
