@@ -47,16 +47,16 @@ for _, module_name in pairs({ "speed", "productivity", "efficiency" }) do
 
     --module-3
     lib.replace_recipe_ingredient(module_name.."-module-3", "processing-unit", "processing-unit", 5)
-    lib.replace_recipe_ingredient(module_name.."-module-3", module_name.."-module-2", module_name.."-module", 4)
+    lib.replace_recipe_ingredient(module_name.."-module-3", module_name.."-module-2", module_name.."-module-2", 4)
     lib.add_recipe_ingredient(module_name.."-module-3", "bob-advanced-processing-unit", 5)
     bobmods.lib.tech.add_prerequisite(module_name.."-module-3", "bob-advanced-processing-unit")
 
     --module-4
-    lib.replace_recipe_ingredient("bob-"..module_name.."-module-4", module_name.."-module-3", module_name.."-module", 3)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-4", module_name.."-module-3", module_name.."-module-3", 3)
     lib.add_recipe_ingredient("bob-"..module_name.."-module-4", "processing-unit", 10)
 
     --module-5
-    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", module_name.."-module-4", module_name.."-module", 2)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", module_name.."-module-4", module_name.."-module-4", 2)
 end
 
 --balance cost of agricultural modules
