@@ -124,7 +124,7 @@ data.raw.recipe['processing-unit'] =
   {
     type = "recipe",
     name = "processing-unit",
-    category = "electronics",
+    category = "electronics-with-fluid",
     enabled = false,
     energy_required = 10,
     ingredients = lib.checkplate(
@@ -180,7 +180,7 @@ data.raw.recipe['bob-advanced-processing-unit'] =
   {
     type = "recipe",
     name = "bob-advanced-processing-unit",
-    category = "electronics",
+    category = "electronics-with-fluid",
     enabled = false,
     energy_required = 15,
     ingredients = lib.checkplate(
