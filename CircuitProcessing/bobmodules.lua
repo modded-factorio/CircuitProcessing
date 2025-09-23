@@ -35,8 +35,8 @@ end
 -- balance cost of modules
 for _, module_name in pairs({ "speed", "productivity", "efficiency" }) do
     -- modules-1
-    lib.replace_recipe_ingredient(module_name.."-module", "electronic-circuit", "electronic-circuit", 6)
-    lib.add_recipe_ingredient(module_name.."-module", "advanced-circuit", 6)
+    lib.replace_recipe_ingredient(module_name.."-module", "electronic-circuit", "electronic-circuit", 5)
+    lib.add_recipe_ingredient(module_name.."-module", "advanced-circuit", 5)
     bobmods.lib.tech.add_prerequisite(module_name.."-module", "advanced-circuit")
 
     --module-2
@@ -48,16 +48,31 @@ for _, module_name in pairs({ "speed", "productivity", "efficiency" }) do
     --module-3
     lib.replace_recipe_ingredient(module_name.."-module-3", "processing-unit", "processing-unit", 5)
     lib.replace_recipe_ingredient(module_name.."-module-3", module_name.."-module-2", module_name.."-module-2", 4)
-    lib.add_recipe_ingredient(module_name.."-module-3", "bob-advanced-processing-unit", 5)
+    lib.add_recipe_ingredient(module_name.."-module-3", "bob-advanced-processing-unit", 3)
     bobmods.lib.tech.add_prerequisite(module_name.."-module-3", "bob-advanced-processing-unit")
 
     --module-4
     lib.replace_recipe_ingredient("bob-"..module_name.."-module-4", module_name.."-module-3", module_name.."-module-3", 3)
-    lib.add_recipe_ingredient("bob-"..module_name.."-module-4", "processing-unit", 10)
+    lib.add_recipe_ingredient("bob-"..module_name.."-module-4", "advanced-circuit", 6)
+    lib.add_recipe_ingredient("bob-"..module_name.."-module-4", "processing-unit", 5)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-4", "bob-advanced-processing-unit", "bob-advanced-processing-unit", 4)
 
     --module-5
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", "electronic-circuit", "electronic-circuit", 15)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", "advanced-circuit", "advanced-circuit", 10)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", "processing-unit", "processing-unit", 5)
+    lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", "bob-advanced-processing-unit", "bob-advanced-processing-unit", 5)
     lib.replace_recipe_ingredient("bob-"..module_name.."-module-5", module_name.."-module-4", module_name.."-module-4", 2)
 end
+
+--balance effects of modules-1 because they are much cheaper as module-0 in 1.1
+lib.add_module_effect("productivity-module", "productivity", 0.03) --was 0.04
+lib.add_module_effect("productivity-module", "speed", -0.1) --was -0.05
+
+lib.add_module_effect("speed-module", "speed", 0.15) --was 0.2
+lib.add_module_effect("speed-module", "consumption", 0.55) --was 0.5
+
+lib.add_module_effect("efficiency-module", "consumption", -0.3) --was -0.4
 
 --balance cost of agricultural modules
 lib.replace_recipe_ingredient("angels-bio-yield-module", "efficiency-module", "efficiency-module", 2)
