@@ -53,6 +53,7 @@ data.raw.recipe['electronic-circuit'] =
     results = { {type = "item", name = "electronic-circuit", amount = 1} },
     requester_paste_multiplier = 50,
     enabled = false,
+    allow_productivity = true,
     allow_decomposition = false
   }
 
@@ -95,7 +96,8 @@ data.raw.recipe['advanced-circuit'] =
     }),
     results = { {type = "item", name = "advanced-circuit", amount = 1} },
     requester_paste_multiplier = 5,
-    allow_decomposition = false
+    allow_decomposition = false,
+    allow_productivity = true
 }
 
 local cpprocessingboard = data.raw.item['processing-unit']
@@ -135,7 +137,8 @@ data.raw.recipe['processing-unit'] =
         { type = "fluid", name = "sulfuric-acid", amount = 5 }
     }),
     results = { {type = "item", name = "processing-unit", amount = 1} },
-    allow_decomposition = false
+    allow_decomposition = false,
+    allow_productivity = true
   }
 lib.set_energy_required('cp-processing-board', 5)
 lib.set_energy_required('bob-superior-circuit-board', 5)
@@ -192,7 +195,8 @@ data.raw.recipe['bob-advanced-processing-unit'] =
         { type = "fluid", name = advancedacid, amount = 5 }
     }),
     results = { {type = "item", name = "bob-advanced-processing-unit", amount = 1} },
-    allow_decomposition = false
+    allow_decomposition = false,
+    allow_productivity = true
   }
 
 local cable = {
