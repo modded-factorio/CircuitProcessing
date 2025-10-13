@@ -36,6 +36,8 @@ data.raw.item['electronic-circuit'] =
 local cpelectroniccircuitboardrecipe = data.raw.recipe['electronic-circuit']
 data.raw.recipe['cp-electronic-circuit-board'] = cpelectroniccircuitboardrecipe
 cpelectroniccircuitboardrecipe.name = 'cp-electronic-circuit-board'
+data.raw.recipe["cp-electronic-circuit-board"].allow_productivity = true
+
 data.raw.recipe["cp-electronic-circuit-board"].results = {
     { type = "item", name = "cp-electronic-circuit-board", amount = 1 }
 }
@@ -73,6 +75,7 @@ data.raw.item['advanced-circuit'] =
 local cpadvancedcircuitboardrecipe = data.raw.recipe['advanced-circuit']
 data.raw.recipe['cp-advanced-circuit-board'] = cpadvancedcircuitboardrecipe
 cpadvancedcircuitboardrecipe.name = 'cp-advanced-circuit-board'
+data.raw.recipe["cp-advanced-circuit-board"].allow_productivity = true
 
 data.raw.recipe["cp-advanced-circuit-board"].results = {
     { type = "item", name = "cp-advanced-circuit-board", amount = 1 }
@@ -115,6 +118,7 @@ data.raw.item['processing-unit'] =
 local cpprocessingboardrecipe = data.raw.recipe['processing-unit']
 data.raw.recipe['cp-processing-board'] = cpprocessingboardrecipe
 cpprocessingboardrecipe.name = 'cp-processing-board'
+data.raw.recipe["cp-processing-board"].allow_productivity = true
 
 data.raw.recipe["cp-processing-board"].results = {
     { type = "item", name = "cp-processing-board", amount = 1 }
@@ -168,6 +172,7 @@ end
 local cpadvancedprocessingboardrecipe = data.raw.recipe['bob-advanced-processing-unit']
 data.raw.recipe['cp-advanced-processing-board'] = cpadvancedprocessingboardrecipe
 cpadvancedprocessingboardrecipe.name = 'cp-advanced-processing-board'
+data.raw.recipe["cp-advanced-processing-board"].allow_productivity = true
 
 data.raw.recipe["cp-advanced-processing-board"].results = {
     { type = "item", name = "cp-advanced-processing-board", amount = 1 }
