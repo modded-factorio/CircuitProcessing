@@ -1,3 +1,7 @@
 require "bobelectronics"
-require "angelsmodules"
+
+if mods["angelsbioprocessing"] then
+  require "angelsmodules"
+end
+
 require "bobmodules"
