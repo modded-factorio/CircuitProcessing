@@ -43,11 +43,19 @@ data.raw.recipe["cp-electronic-circuit-board"].results = {
 }
 lib.set_main_product('cp-electronic-circuit-board', 'cp-electronic-circuit-board')
 
+local electronics_crafting_category = "crafting"
+local electronics_fluid_crafting_category = "advanced-crafting"
+
+if mods["bobassembly"] then
+  electronics_crafting_category = "electronics"
+  electronics_fluid_crafting_category = "electronics-with-fluid"
+end
+
 data.raw.recipe['electronic-circuit'] =
   {
     type = "recipe",
     name = "electronic-circuit",
-    category = "electronics",
+    category = electronics_crafting_category,
     ingredients = {
         { type = "item", name = "cp-electronic-circuit-board", amount = 1 },
         { type = "item", name = "iron-plate", amount = 2 }
@@ -86,7 +94,7 @@ data.raw.recipe['advanced-circuit'] =
   {
     type = "recipe",
     name = "advanced-circuit",
-    category = "electronics",
+    category = electronics_crafting_category,
     enabled = false,
     energy_required = 6,
     ingredients = lib.checkplate(
@@ -128,7 +136,7 @@ data.raw.recipe['processing-unit'] =
   {
     type = "recipe",
     name = "processing-unit",
-    category = "electronics-with-fluid",
+    category = electronics_fluid_crafting_category,
     enabled = false,
     energy_required = 10,
     ingredients = lib.checkplate(
@@ -185,7 +193,7 @@ data.raw.recipe['bob-advanced-processing-unit'] =
   {
     type = "recipe",
     name = "bob-advanced-processing-unit",
-    category = "electronics-with-fluid",
+    category = electronics_fluid_crafting_category,
     enabled = false,
     energy_required = 15,
     ingredients = lib.checkplate(
