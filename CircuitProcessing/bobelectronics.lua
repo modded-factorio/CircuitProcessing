@@ -274,3 +274,13 @@ for k,v in pairs(data.raw.technology) do
     end
   end
 end
+
+-- Update advanced circuit icons as they are very similar
+local circuit_board = data.raw.item["bob-circuit-board"]
+if circuit_board then
+  circuit_board.icon = "__CircuitProcessing__/graphics/icons/circuit-board.png"
+end
+
+circuit_board = data.raw.item["cp-advanced-circuit-board"]
+
+circuit_board.icon = "__CircuitProcessing__/graphics/icons/electronic-circuit-board.png"
