@@ -1,8 +1,16 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.0.0
+Version: 2.0.0
 Date: ???
   Changes:
+    - Added support of Angel's Bioprocessing Agriculture modules #2
+    - Re-wrote the entire mod #22 #28
     - Updated for Factorio 2.0 #31
+    - Updated module handling #32
+      - Updated to support Bob's 5 tier modules
+      - Added additional tier of module circuit boards
+      - Removed cable harnesses
+      - Updated how settings from other mods are handled so they won't need to be reset after removing Circuit Processing
+      - Stopped hiding God module setting
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.5
 Date: 01.01.2023

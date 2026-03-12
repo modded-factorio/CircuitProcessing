@@ -13,6 +13,7 @@
     "? bobmodules >= 2.0.0",
     "? bobrevamp >= 2.0.0",
     "? angelssmelting",
-    "? angelsbioprocessing"
+    "? angelsbioprocessing",
+    "(?) quality"
   ]
 }

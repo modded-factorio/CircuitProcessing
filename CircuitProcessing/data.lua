@@ -2,3 +2,6 @@ if angelsmods and angelsmods.trigger and angelsmods.trigger.smelting_products an
   angelsmods.trigger.smelting_products["chrome"] then
   angelsmods.trigger.smelting_products["chrome"].plate = true
 end
+
+require "bobelectronics"
+require "bobmodules"
