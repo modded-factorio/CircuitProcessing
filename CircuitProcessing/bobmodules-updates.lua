@@ -90,9 +90,6 @@ local effects = {
 if mods["bobplates"] then
   bobmods.lib.tech.remove_prerequisite("bob-modules-2", "bob-gem-processing-3")
   bobmods.lib.tech.add_prerequisite("modules", "bob-gem-processing-3")
-  if mods["angelspetrochem"] then
-    bobmods.lib.tech.add_prerequisite("bob-modules-2", "angels-rubbers")
-  end
 
   bobmods.lib.recipe.remove_ingredient("bob-efficiency-processor", "bob-ruby-5")
   bobmods.lib.recipe.remove_ingredient("bob-efficiency-processor-2", "bob-sapphire-5")
@@ -129,6 +126,10 @@ bobmods.lib.recipe.set_ingredient("bob-module-processor-board", { type = "fluid"
 bobmods.lib.recipe.set_ingredient("bob-module-circuit-board", { type = "item", name = "bob-wooden-board", amount = 1 })
 bobmods.lib.recipe.set_ingredient("bob-module-processor-board", { type = "item", name = "bob-phenolic-board", amount = 1 })
 bobmods.lib.recipe.set_ingredient("bob-module-processor-board-2", { type = "item", name = "bob-fibreglass-board", amount = 1 })
+
+if mods["angelspetrochem"] then
+  bobmods.lib.tech.add_prerequisite("bob-modules-2", "angels-rubbers")
+end
 
 for i, v in pairs({
   "speed",
@@ -223,8 +224,10 @@ if mods["angelsbioprocessing"] then
     { type = "item", name = "cp-speed-processor", amount = 5 },
     { type = "item", name = "cp-productivity-processor", amount = 5 },
     { type = "item", name = "angels-token-bio", amount = 1 },
-    { type = "item", name = "bob-topaz-5", amount = 5 },
   }
+  if mods["bobplates"] then
+    bobmods.lib.recipe.add_ingredient(processor1, { type = "item", name = "bob-topaz-5", amount = 5 })
+  end
 
   data.raw.recipe["angels-bio-yield-module-2"].ingredients = {
     { type = "item", name = "bob-module-case", amount = 1 },
