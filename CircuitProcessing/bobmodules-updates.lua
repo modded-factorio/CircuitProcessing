@@ -115,7 +115,20 @@ end
 local board1 = data.raw.item["bob-module-circuit-board"]
 board1.subgroup = "cp-module-intermediates"
 board1.order = "1[bob-module-circuit-board]"
-bobmods.lib.recipe.add_ingredient("bob-module-circuit-board", { type = "item", name = "bob-module-contact", amount = 4 })
+
+bobmods.lib.recipe.set_ingredient("bob-module-case", { type = "item", name = "plastic-bar", amount = 1 })
+
+bobmods.lib.recipe.add_ingredient("bob-module-circuit-board", { type = "item", name = "bob-module-contact", amount = 1 })
+bobmods.lib.recipe.set_ingredient("bob-module-processor-board", { type = "item", name = "bob-module-contact", amount = 2 })
+bobmods.lib.recipe.set_ingredient("bob-module-processor-board-2", { type = "item", name = "bob-module-contact", amount = 4 })
+bobmods.lib.recipe.set_ingredient("bob-module-processor-board-3", { type = "item", name = "bob-module-contact", amount = 8 })
+
+bobmods.lib.recipe.set_ingredient("bob-module-circuit-board", { type = "fluid", name = "angels-liquid-ferric-chloride-solution", amount = 5 })
+bobmods.lib.recipe.set_ingredient("bob-module-processor-board", { type = "fluid", name = "angels-liquid-ferric-chloride-solution", amount = 10 })
+
+bobmods.lib.recipe.set_ingredient("bob-module-circuit-board", { type = "item", name = "bob-wooden-board", amount = 1 })
+bobmods.lib.recipe.set_ingredient("bob-module-processor-board", { type = "item", name = "bob-phenolic-board", amount = 1 })
+bobmods.lib.recipe.set_ingredient("bob-module-processor-board-2", { type = "item", name = "bob-fibreglass-board", amount = 1 })
 
 for i, v in pairs({
   "speed",
@@ -135,8 +148,10 @@ for i, v in pairs({
 
   bobmods.lib.recipe.set_ingredient(processor2, { type = "item", name = "bob-basic-electronic-components", amount = 8 })
   bobmods.lib.recipe.add_ingredient(processor2, { type = "item", name = "bob-insulated-cable", amount = 2 })
+  bobmods.lib.recipe.set_ingredient(processor2, { type = "item", name = "bob-solder", amount = 3 })
   bobmods.lib.recipe.add_ingredient(processor3, { type = "item", name = "bob-basic-electronic-components", amount = 20 })
   bobmods.lib.recipe.add_ingredient(processor3, { type = "item", name = "bob-insulated-cable", amount = 5 })
+  bobmods.lib.recipe.set_ingredient(processor3, { type = "item", name = "bob-solder", amount = 6 })
   bobmods.lib.recipe.add_ingredient(processor4, { type = "item", name = "bob-basic-electronic-components", amount = 24 })
   bobmods.lib.recipe.add_ingredient(processor4, { type = "item", name = "bob-electronic-components", amount = 20 })
   bobmods.lib.recipe.add_ingredient(processor4, { type = "item", name = "bob-insulated-cable", amount = 10 })
@@ -274,7 +289,11 @@ if mods["quality"] then
     "bob-god-module",
     "bob-god-module-productivity",
     "bob-god-module-quality",
+    "bob-module-case",
     "bob-module-circuit-board",
+    "bob-module-processor-board",
+    "bob-module-processor-board-2",
+    "bob-module-processor-board-3",
     "bob-productivity-module-4",
     "bob-productivity-module-5",
     "bob-productivity-processor",

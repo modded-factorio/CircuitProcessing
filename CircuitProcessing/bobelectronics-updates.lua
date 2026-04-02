@@ -1,10 +1,14 @@
 local lib = require "lib"
 
+-- BROWN
+bobmods.lib.recipe.allow_productivity("bob-basic-circuit-board")
+
 -- GREEN
 
 local cpelectroniccircuitboardrecipe = data.raw.recipe["electronic-circuit"]
 data.raw.recipe["cp-electronic-circuit-board"] = cpelectroniccircuitboardrecipe
 cpelectroniccircuitboardrecipe.name = "cp-electronic-circuit-board"
+cpelectroniccircuitboardrecipe.allow_productivity = true
 bobmods.lib.recipe.replace_ingredient("cp-electronic-circuit-board", "bob-wooden-board", "bob-basic-circuit-board")
 bobmods.lib.recipe.remove_result("cp-electronic-circuit-board", "electronic-circuit")
 bobmods.lib.recipe.add_result("cp-electronic-circuit-board", { type = "item", name = "cp-electronic-circuit-board", amount = 1 })
@@ -16,7 +20,7 @@ data.raw.recipe["electronic-circuit"] = {
   ingredients =
   {
     { type = "item", name = "cp-electronic-circuit-board", amount = 1 },
-    { type = "item", name = "iron-plate", amount = 2 },
+    { type = "item", name = "iron-plate", amount = 1 },
   },
   results = {{ type = "item", name = "electronic-circuit", amount = 1 }},
   requester_paste_multiplier = 50,
@@ -24,6 +28,7 @@ data.raw.recipe["electronic-circuit"] = {
   allow_decomposition = false,
 }
 bobmods.lib.recipe.add_additional_category("electronic-circuit", "electronics")
+bobmods.lib.recipe.allow_productivity("electronic-circuit")
 
 -- RED
 
@@ -34,8 +39,10 @@ cpadvancedcircuitboard .icon_size = 64
 local cpadvancedcircuitboardrecipe = data.raw.recipe["advanced-circuit"]
 data.raw.recipe["cp-advanced-circuit-board"] = cpadvancedcircuitboardrecipe
 cpadvancedcircuitboardrecipe.name = "cp-advanced-circuit-board"
+cpadvancedcircuitboardrecipe.allow_productivity = true
 bobmods.lib.recipe.remove_result("cp-advanced-circuit-board", "advanced-circuit")
 bobmods.lib.recipe.add_result("cp-advanced-circuit-board", { type = "item", name = "cp-advanced-circuit-board", amount = 1 })
+bobmods.lib.recipe.set_ingredient("cp-advanced-circuit-board", { type = "item", name = "bob-solder", amount = 1 })
 lib.set_main_product("cp-advanced-circuit-board", "cp-advanced-circuit-board")
 
 data.raw.recipe["advanced-circuit"] = {
@@ -45,7 +52,7 @@ data.raw.recipe["advanced-circuit"] = {
   enabled = false,
   energy_required = 6,
   ingredients = lib.checkplate(
-    { type = "item", name = "bob-aluminium-plate", amount = 4 },
+    { type = "item", name = "bob-aluminium-plate", amount = 2 },
     {
       { type = "item", name = "electronic-circuit", amount = 2 },
       { type = "item", name = "cp-advanced-circuit-board", amount = 2 },
@@ -57,6 +64,7 @@ data.raw.recipe["advanced-circuit"] = {
   allow_decomposition = false,
 }
 bobmods.lib.recipe.add_additional_category("advanced-circuit", "electronics")
+bobmods.lib.recipe.allow_productivity("advanced-circuit")
 
 -- BLUE
 
@@ -67,8 +75,10 @@ cpprocessingboard.icon_size = 64
 local cpprocessingboardrecipe = data.raw.recipe["processing-unit"]
 data.raw.recipe["cp-processing-board"] = cpprocessingboardrecipe
 cpprocessingboardrecipe.name = "cp-processing-board"
+cpprocessingboardrecipe.allow_productivity = true
 bobmods.lib.recipe.remove_result("cp-processing-board", "processing-unit")
 bobmods.lib.recipe.add_result("cp-processing-board", { type = "item", name = "cp-processing-board", amount = 1 })
+bobmods.lib.recipe.set_ingredient("cp-processing-board", { type = "item", name = "bob-solder", amount = 2 })
 lib.set_main_product("cp-processing-board", "cp-processing-board")
 data.raw.recipe["processing-unit"] = {
   type = "recipe",
@@ -77,7 +87,7 @@ data.raw.recipe["processing-unit"] = {
   enabled = false,
   energy_required = 10,
   ingredients = lib.checkplate(
-    { type = "item", name = "bob-titanium-plate", amount = 8 },
+    { type = "item", name = "bob-titanium-plate", amount = 4 },
     {
       {type = "item", name = "advanced-circuit", amount = 4 },
       {type = "item", name = "cp-processing-board", amount = 4 },
@@ -90,6 +100,9 @@ data.raw.recipe["processing-unit"] = {
 bobmods.lib.recipe.add_additional_category("processing-unit", "electronics")
 bobmods.lib.recipe.set_energy_required("cp-processing-board", 5)
 bobmods.lib.recipe.set_energy_required("bob-superior-circuit-board", 5)
+bobmods.lib.recipe.allow_productivity("processing-unit")
+
+-- BLACK
 
 local advancedplate = "steel-plate"
 if data.raw.item["angels-plate-chrome"] then
@@ -104,7 +117,6 @@ elseif data.raw.fluid["angels-liquid-nitric-acid"] then
   advancedacid = "angels-liquid-nitric-acid"
 end
 
--- BLACK
 
 local cpadvancedprocessingboard = data.raw.item["bob-multi-layer-circuit-board"]
 cpadvancedprocessingboard.icon = "__CircuitProcessing__/graphics/icons/circuits/multi-layer-circuit-board.png"
@@ -113,6 +125,7 @@ cpadvancedprocessingboard.icon_size = 64
 local cpadvancedprocessingboardrecipe = data.raw.recipe["bob-advanced-processing-unit"]
 data.raw.recipe["cp-advanced-processing-board"] = cpadvancedprocessingboardrecipe
 cpadvancedprocessingboardrecipe.name = "cp-advanced-processing-board"
+cpadvancedprocessingboardrecipe.allow_productivity = true
 bobmods.lib.recipe.remove_result("cp-advanced-processing-board", "bob-advanced-processing-unit")
 bobmods.lib.recipe.add_result("cp-advanced-processing-board", { type = "item", name = "cp-advanced-processing-board", amount = 1 })
 lib.set_main_product("cp-advanced-processing-board", "cp-advanced-processing-board")
@@ -137,38 +150,13 @@ data.raw.recipe["bob-advanced-processing-unit"] = {
   allow_decomposition = false,
 }
 bobmods.lib.recipe.add_additional_category("bob-advanced-processing-unit", "electronics-with-fluid")
+bobmods.lib.recipe.allow_productivity("bob-advanced-processing-unit")
+bobmods.lib.recipe.set_ingredient("cp-advanced-processing-board", { type = "item", name = "bob-solder", amount = 4 })
 
-local cable = {
-  ["copper-cable"] = true,
-  ["bob-tinned-copper-cable"] = true,
-  ["angels-wire-silver"] = true,
-  ["bob-gilded-copper-cable"] = true
-}
-
-local components = {
-  "bob-basic-electronic-components",
-  "bob-electronic-components",
-  "bob-integrated-electronics"
-}
-
-for _, recipe_name in pairs(components) do
-  local recipe = data.raw.recipe[recipe_name]
-  if recipe and recipe.ingredients then
-    for _, ingredient in pairs(recipe.ingredients) do
-      if cable[ingredient.name] then
-        ingredient.amount = ingredient.amount * 2
-      end
-    end
-  end
-end
-
-data.raw.recipe["bob-basic-electronic-components"].results[1].amount = 10
+bobmods.lib.recipe.set_result("bob-basic-electronic-components", { type = "item", name = "bob-basic-electronic-components", amount = 10 })
 bobmods.lib.recipe.set_energy_required("bob-basic-electronic-components", 4)
 
-bobmods.lib.recipe.disallow_productivity("cp-advanced-processing-board")
-bobmods.lib.recipe.disallow_productivity("cp-processing-board")
-bobmods.lib.recipe.disallow_productivity("cp-advanced-circuit-board")
-bobmods.lib.recipe.disallow_productivity("cp-electronic-circuit-board")
+bobmods.lib.recipe.set_ingredient("bob-processing-electronics", { type = "item", name = "angels-wire-platinum", amount = 20 })
 
 for k, v in pairs(data.raw.technology) do
   for ek, ev in pairs(v.effects or {}) do

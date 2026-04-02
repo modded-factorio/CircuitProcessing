@@ -55,7 +55,7 @@ for i, v in pairs({
       type = "recipe",
       name = processor1,
       ingredients = lib.checkplate(
-        { type = "item", name = "bob-solder", amount = 2 },
+        { type = "item", name = "bob-solder", amount = 1 },
         {
           { type = "item", name = "bob-basic-electronic-components", amount = 4 },
           { type = "item", name = "bob-module-circuit-board", amount = 1 },

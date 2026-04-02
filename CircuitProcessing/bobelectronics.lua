@@ -29,6 +29,7 @@ data:extend({
     results = {{ type = "item", name = "cp-electronic-circuit-board", amount = 1 }},
     enabled = false,
     energy_required = 1,
+    allow_productivity = true,
   },
 })
 bobmods.lib.recipe.add_additional_category("cp-electronic-circuit-board", "electronics")
@@ -53,6 +54,7 @@ data:extend({
     results = {{ type = "item", name = "cp-advanced-circuit-board", amount = 1 }},
     enabled = false,
     energy_required = 5,
+    allow_productivity = true,
   },
 })
 bobmods.lib.recipe.add_additional_category("cp-advanced-circuit-board", "electronics")
@@ -77,6 +79,7 @@ data:extend({
     results = {{ type = "item", name = "cp-processing-board", amount = 1 }},
     enabled = false,
     energy_required = 5,
+    allow_productivity = true,
   },
 })
 bobmods.lib.recipe.add_additional_category("cp-processing-board", "electronics")
@@ -101,6 +104,7 @@ data:extend({
     results = {{ type = "item", name = "cp-advanced-processing-board", amount = 1 }},
     enabled = false,
     energy_required = 5,
+    allow_productivity = true,
   },
 })
 bobmods.lib.recipe.add_additional_category("cp-advanced-processing-board", "electronics")
