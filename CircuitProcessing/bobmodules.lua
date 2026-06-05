@@ -72,4 +72,5 @@ for i, v in pairs({
     bobmods.lib.recipe.add_ingredient(processor1, { type = "item", name = gems[v], amount = 1 })
   end
   bobmods.lib.tech.add_recipe_unlock(module1, processor1)
+  bobmods.lib.recipe.add_additional_category(processor1, "electronics")
 end
