@@ -110,6 +110,7 @@ if mods["bobplates"] then
 end
 
 local board1 = data.raw.item["bob-module-circuit-board"]
+board1.icon = "__CircuitProcessing__/graphics/icons/modules/bob-module-circuit-board.png"
 board1.subgroup = "cp-module-intermediates"
 board1.order = "1[bob-module-circuit-board]"
 

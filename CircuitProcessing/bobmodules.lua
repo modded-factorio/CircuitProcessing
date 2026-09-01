@@ -43,7 +43,7 @@ for i, v in pairs({
     {
       type = "item",
       name = processor1,
-      icon = "__bobmodules__/graphics/icons/"..v.."-processor.png",
+      icon = "__CircuitProcessing__/graphics/icons/modules/cp-"..v.."-processor.png",
       subgroup = "cp-module-intermediates",
       order = i + 1 .. "["..processor1.."]",
       stack_size = 200,
