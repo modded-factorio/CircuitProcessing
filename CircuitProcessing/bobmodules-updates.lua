@@ -283,7 +283,7 @@ if mods["angelsbioprocessing"] then
   bobmods.lib.tech.add_prerequisite("angels-bio-yield-module-5", "bob-speed-module-5")
 end
 
-if mods["quality"] then
+if mods["recycler"] then
   bobmods.lib.recipe.update_recycling_recipe({
     "bob-efficiency-module-4",
     "bob-efficiency-module-5",
@@ -300,11 +300,6 @@ if mods["quality"] then
     "bob-productivity-processor",
     "bob-productivity-processor-2",
     "bob-productivity-processor-3",
-    "bob-quality-module-4",
-    "bob-quality-module-5",
-    "bob-quality-processor",
-    "bob-quality-processor-2",
-    "bob-quality-processor-3",
     "bob-speed-module-4",
     "bob-speed-module-5",
     "bob-speed-processor",
@@ -316,13 +311,22 @@ if mods["quality"] then
     "productivity-module",
     "productivity-module-2",
     "productivity-module-3",
-    "quality-module",
-    "quality-module-2",
-    "quality-module-3",
     "speed-module",
     "speed-module-2",
     "speed-module-3",
   })
+  if mods["quality"] then
+    bobmods.lib.recipe.update_recycling_recipe({
+      "bob-quality-module-4",
+      "bob-quality-module-5",
+      "bob-quality-processor",
+      "bob-quality-processor-2",
+      "bob-quality-processor-3",
+      "quality-module",
+      "quality-module-2",
+      "quality-module-3",
+    })
+  end
   if settings.startup["bobmods-modules-enablegodmodules"].value == true then
     bobmods.lib.recipe.update_recycling_recipe({
       "bob-god-module",

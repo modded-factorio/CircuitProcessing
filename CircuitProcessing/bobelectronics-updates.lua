@@ -189,7 +189,7 @@ for k, v in pairs(data.raw.technology) do
   end
 end
 
-if mods["quality"] then
+if mods["recycler"] then
   bobmods.lib.recipe.update_recycling_recipe({
     "advanced-circuit",
     "bob-advanced-processing-unit",
