@@ -24,7 +24,7 @@ data:extend({
   {
     type = "recipe",
     name = "cp-electronic-circuit-board",
-    category = "advanced-crafting",
+    categories = { "advanced-crafting" },
     ingredients = {},
     results = {{ type = "item", name = "cp-electronic-circuit-board", amount = 1 }},
     enabled = false,
@@ -32,7 +32,7 @@ data:extend({
     allow_productivity = true,
   },
 })
-bobmods.lib.recipe.add_additional_category("cp-electronic-circuit-board", "electronics")
+bobmods.lib.recipe.add_category("cp-electronic-circuit-board", "electronics")
 
 -- RED
 
@@ -49,7 +49,7 @@ data:extend({
   {
     type = "recipe",
     name = "cp-advanced-circuit-board",
-    category = "advanced-crafting",
+    categories = { "advanced-crafting" },
     ingredients = {},
     results = {{ type = "item", name = "cp-advanced-circuit-board", amount = 1 }},
     enabled = false,
@@ -57,7 +57,7 @@ data:extend({
     allow_productivity = true,
   },
 })
-bobmods.lib.recipe.add_additional_category("cp-advanced-circuit-board", "electronics")
+bobmods.lib.recipe.add_category("cp-advanced-circuit-board", "electronics")
 
 -- BLUE
 
@@ -74,7 +74,7 @@ data:extend({
   {
     type = "recipe",
     name = "cp-processing-board",
-    category = "advanced-crafting",
+    categories = { "advanced-crafting" },
     ingredients = {},
     results = {{ type = "item", name = "cp-processing-board", amount = 1 }},
     enabled = false,
@@ -82,7 +82,7 @@ data:extend({
     allow_productivity = true,
   },
 })
-bobmods.lib.recipe.add_additional_category("cp-processing-board", "electronics")
+bobmods.lib.recipe.add_category("cp-processing-board", "electronics")
 
 -- BLACK
 
@@ -99,7 +99,7 @@ data:extend({
   {
     type = "recipe",
     name = "cp-advanced-processing-board",
-    category = "advanced-crafting",
+    categories = { "advanced-crafting" },
     ingredients = {},
     results = {{ type = "item", name = "cp-advanced-processing-board", amount = 1 }},
     enabled = false,
@@ -107,4 +107,4 @@ data:extend({
     allow_productivity = true,
   },
 })
-bobmods.lib.recipe.add_additional_category("cp-advanced-processing-board", "electronics")
+bobmods.lib.recipe.add_category("cp-advanced-processing-board", "electronics")
