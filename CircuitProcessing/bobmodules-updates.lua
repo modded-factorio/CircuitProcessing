@@ -227,7 +227,7 @@ if mods["angelsbioprocessing"] then
     { type = "item", name = "angels-token-bio", amount = 1 },
   }
   if mods["bobplates"] then
-    bobmods.lib.recipe.add_ingredient(processor1, { type = "item", name = "bob-topaz-5", amount = 5 })
+    bobmods.lib.recipe.add_ingredient("angels-bio-yield-module", { type = "item", name = "bob-topaz-5", amount = 5 })
   end
 
   data.raw.recipe["angels-bio-yield-module-2"].ingredients = {
