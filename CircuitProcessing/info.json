@@ -1,9 +1,9 @@
 {
   "name": "CircuitProcessing",
-  "version": "0.4.5",
+  "version": "2.0.0",
   "factorio_version": "2.0",
   "title": "Circuit Processing",
-  "author": "Trainwreck",
+  "author": "Trainwreck, KiwiHawk",
   "contact": "",
   "homepage": "",
   "description": "A mod for Bob's mods. Reintroduces green to red to blue circuit progression. New circuits result in overall increased resource usage. Reduces module count and types.",

@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
-Date: ???
+Date: 01.09.2026
   Changes:
     - Added support of Angel's Bioprocessing Agriculture modules #2
     - Re-wrote the entire mod #22 #28
@@ -11,6 +11,7 @@ Date: ???
       - Removed cable harnesses
       - Updated how settings from other mods are handled so they won't need to be reset after removing Circuit Processing
       - Stopped hiding God module setting
+    - Added new icons for basic module boards #33
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.5
 Date: 01.01.2023
