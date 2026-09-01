@@ -289,9 +289,6 @@ if mods["quality"] then
     "bob-efficiency-processor",
     "bob-efficiency-processor-2",
     "bob-efficiency-processor-3",
-    "bob-god-module",
-    "bob-god-module-productivity",
-    "bob-god-module-quality",
     "bob-module-case",
     "bob-module-circuit-board",
     "bob-module-processor-board",
@@ -325,6 +322,17 @@ if mods["quality"] then
     "speed-module-2",
     "speed-module-3",
   })
+  if settings.startup["bobmods-modules-enablegodmodules"].value == true then
+    bobmods.lib.recipe.update_recycling_recipe({
+      "bob-god-module",
+      "bob-god-module-productivity",
+    })
+    if mods["quality"] then
+      bobmods.lib.recipe.update_recycling_recipe({
+        "bob-god-module-quality",
+      })
+    end
+  end
   if mods["angelsbioprocessing"] then
     bobmods.lib.recipe.update_recycling_recipe({
       "angels-bio-yield-module",
